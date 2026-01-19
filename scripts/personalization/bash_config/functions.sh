@@ -91,6 +91,12 @@ beginUser(){
   sudo apt install grub-customizer -y
   sudo update-grub
 
+  # ferramentas uteis gerais
+  sudo snap install bitwarden -y && sudo snap connect bitwarden:password-manager-service
+  sudo apt install caffeine flatpak -y
+  sudo snap install obsidian --classic
+  sudo snap install todoist
+
   # compiladores e ferramentas basicas
   sudo apt install -y gcc g++ gdb valgrind clang build-essential make
   sudo apt install -y git curl wget unzip zip 
@@ -122,7 +128,6 @@ beginUser(){
   
   # ferramentas extras e eletrônica
   sudo apt install zsh -y 
-  sudo snap install arduino
   sudo apt install kicad -y
   sudo apt install octave gnuplot gnuplot-x11 -y
 
@@ -130,6 +135,10 @@ beginUser(){
   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   sudo apt install ./google-chrome*.deb
   rm google-chrome*.deb
+
+  # frameworks to code 
+  sudo snap install arduino
+  sudo apt install platformio
 
   # docker
   sudo apt install docker.io docker-compose -y
@@ -140,6 +149,13 @@ beginUser(){
   sudo apt install xclip
 
   sudo apt autoremove -y
+}
+
+install_stremio(){
+  sudo apt install flatpak -y
+  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  flatpak install flathub com.stremio.Stremio
+  flatpak run com.stremio.Stremio
 }
 
 # Função para testar mensagens coloridas

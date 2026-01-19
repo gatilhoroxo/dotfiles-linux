@@ -71,6 +71,16 @@ myip() {
     echo "IP Público: $(curl -s ifconfig.me)"
 }
 
+coffee_time() {
+  if [ -z "$1" ]; then
+    echo "Uso: caffeine_time <minutos>"
+  else
+    (caffeine > /dev/null 2>&1 & sleep $(($1 * 60)) && pkill caffeine) &
+    echo "Tela ligada por $1 minutos"
+  fi
+}
+
+
 # Copia o conteúdo de um arquivo para o clipboard (requer xclip)
 # Instale antes: sudo apt install xclip
 # Uso: copyfile id_rsa.pub

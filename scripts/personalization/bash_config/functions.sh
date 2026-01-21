@@ -71,12 +71,49 @@ myip() {
     echo "IP Público: $(curl -s ifconfig.me)"
 }
 
-coffee_time() {
+awake(){
   if [ -z "$1" ]; then
-    echo "Uso: caffeine_time <minutos>"
+    echo "Uso: awake <minutos>"
   else
-    (caffeine > /dev/null 2>&1 & sleep $(($1 * 60)) && pkill caffeine) &
-    echo "Tela ligada por $1 minutos"
+   (
+      # salvar estado atual
+      IDLE_DELAY=$(gsettings get org.gnome.desktop.session idle-delay)
+      LOCK_ENABLED=$(gsettings get org.gnome.desktop.screensaver lock-enabled)
+      IDLE_DIM=$(gsettings get org.gnome.settings-daemon.plugins.power idle-dim)
+
+      restore() {
+        gsettings set org.gnome.desktop.session idle-delay "$IDLE_DELAY"
+        gsettings set org.gnome.desktop.screensaver lock-enabled "$LOCK_ENABLED"
+        gsettings set org.gnome.settings-daemon.plugins.power idle-dim "$IDLE_DIM"
+        notify-send "awake" "Configurações de tela restauradas"
+        echo "$(date): restore executado" >> /tmp/awake.log
+      }
+
+      # garantir restauração ao sair ou ser morto
+      trap restore EXIT SIGINT SIGTERM
+    
+      # desativar comportamentos de idle
+      gsettings set org.gnome.desktop.session idle-delay 0
+      gsettings set org.gnome.desktop.screensaver lock-enabled false
+      gsettings set org.gnome.settings-daemon.plugins.power idle-dim false
+
+      # manter acordado
+      systemd-inhibit --what=idle:sleep --mode=block -- sleep $(($1 * 60))
+    ) &
+    
+    echo $! > /tmp/awake.pid
+    echo "awake iniciado por $1 minutos (PID $(cat /tmp/awake.pid))"
+  fi
+}
+
+awake_stop() {
+  if [ -f /tmp/awake.pid ]; then
+    PGID=$(cat /tmp/awake.pid)
+    kill -- -"$PGID"
+    rm /tmp/awake.pid
+    echo "awake encerrado antes do tempo"
+  else
+    echo "nenhum awake em execução"
   fi
 }
 
@@ -103,7 +140,7 @@ beginUser(){
 
   # ferramentas uteis gerais
   sudo snap install bitwarden -y && sudo snap connect bitwarden:password-manager-service
-  sudo apt install caffeine flatpak -y
+  sudo apt install flatpak -y
   sudo snap install obsidian --classic
   sudo snap install todoist
 

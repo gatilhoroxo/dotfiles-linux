@@ -1,0 +1,242 @@
+# ==============================================================================
+# FUNÇÕES DE INSTALAÇÃO - Ferramentas de desenvolvimento
+# ==============================================================================
+
+# Compiladores e ferramentas básicas de desenvolvimento
+install_dev_compilers() {
+  echo -e "${b_cyan}[INFO]${nc} Instalando compiladores e ferramentas de desenvolvimento..."
+  
+  sudo apt install -y gcc g++ gdb valgrind clang build-essential make
+  sudo apt install -y git curl wget unzip zip 
+  
+  echo -e "${b_green}[SUCESSO]${nc} Compiladores instalados!"
+}
+
+# Linguagens de programação: Python, Java, Rust
+install_languages() {
+  echo -e "${b_cyan}[INFO]${nc} Instalando linguagens de programação..."
+  
+  # Python
+  sudo apt install -y python3 python3-pip python3-venv
+  
+  # Java
+  sudo apt install -y openjdk-21-jdk maven
+  
+  # Rust
+  curl https://sh.rustup.rs -sSf | sh
+  
+  sysupdate
+  echo -e "${b_green}[SUCESSO]${nc} Linguagens instaladas!"
+}
+
+# Ferramentas de desenvolvimento: Git, GitHub CLI, Qt
+install_dev_tools() {
+  echo -e "${b_cyan}[INFO]${nc} Instalando ferramentas de desenvolvimento..."
+  
+  # Framework Qt
+  sudo apt install -y qtcreator qtbase5-dev qttools5-dev qt5-qmake
+  
+  # GitHub CLI
+  curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+  sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+  sysupdate 
+  sudo apt install gh -y
+  
+  echo -e "${b_green}[SUCESSO]${nc} Ferramentas de desenvolvimento instaladas!"
+}
+
+# Ferramentas de eletrônica: KiCad, Arduino, PlatformIO, Octave
+install_electronics() {
+  echo -e "${b_cyan}[INFO]${nc} Instalando ferramentas de eletrônica..."
+  
+  # Shell/Terminal melhorado
+  sudo apt install zsh -y 
+  
+  # Design de PCB
+  sudo apt install kicad -y
+  
+  # Computação científica
+  sudo apt install octave gnuplot gnuplot-x11 -y
+  
+  # Plataformas de desenvolvimento embarcado
+  sudo snap install arduino
+  sudo apt install platformio -y
+  
+  echo -e "${b_green}[SUCESSO]${nc} Ferramentas de eletrônica instaladas!"
+}
+
+# Ferramentas de containerização: Docker
+install_containers() {
+  echo -e "${b_cyan}[INFO]${nc} Instalando Docker e Docker Compose..."
+  
+  sudo apt install docker.io docker-compose -y
+  sudo usermod -aG docker $USER
+  
+  echo -e "${b_green}[SUCESSO]${nc} Docker instalado!"
+  echo -e "${b_yellow}[AVISO]${nc} Faça logout e login novamente para usar Docker sem sudo"
+}
+
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# Extração manual de alguns aplicativos (binários)
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+install_github_cli() {
+  echo -e "${b_cyan}[INFO]${nc} Instalando GitHub CLI..."
+  
+  cd "$INSTALL_DIR"
+  rm -rf gh-dir
+  mkdir -p gh-dir
+  cd gh-dir
+  
+  echo "Baixando GitHub CLI v2.63.0..."
+  # Link oficial do binário para Linux x64
+  wget -c "https://github.com/cli/cli/releases/download/v2.63.0/gh_2.63.0_linux_amd64.tar.gz" -O gh.tar.gz
+  
+  echo "Extraindo..."
+  tar -xvf gh.tar.gz > /dev/null
+  rm gh.tar.gz
+  
+  # O tar extrai uma pasta com nome longo, vamos achar o binário independente do nome
+  GH_BIN_PATH=$(find . -name "gh" -type f | head -n 1)
+  
+  if ! grep -q "alias gh=" "$ALIAS_FILE"; then
+    # O comando é simples, não precisa de flags de GPU
+    echo "alias gh=\"$INSTALL_DIR/gh-dir/$GH_BIN_PATH\"" >> "$ALIAS_FILE"
+  fi
+  echo -e "${b_green}[SUCESSO]${nc} GitHub CLI instalado manualmente!"
+}
+
+install_vscode_portable() {
+  echo -e "${b_cyan}[INFO]${nc} Instalando VS Code (Portable)..."
+  
+  cd "$INSTALL_DIR"
+  rm -rf vscode-portable-dir
+  mkdir -p vscode-portable-dir
+  cd vscode-portable-dir
+
+  echo "Baixando VS Code Portable..."
+  # Link da versão estável mais recente
+  wget -c "https://update.code.visualstudio.com/latest/linux-x64-zip/stable" -O vscode.zip
+  
+  #wget -c "https://code.visualstudio.com/sha/download?build=stable&os=linux-x64" -O vscode.tar.gz
+  
+  #echo "Extraindo..."
+  #tar -xvf vscode.tar.gz > /dev/null
+  #rm vscode.tar.gz
+  
+  # A pasta extraída geralmente se chama "VSCode-linux-x64"
+  #mv VSCode-linux-x64 vscode-bin
+
+  echo "Extraindo..."
+  unzip vscode.zip > /dev/null
+  rm vscode.zip
+  
+  if ! grep -q "alias codes=" "$ALIAS_FILE"; then
+      echo "alias codes=\"$INSTALL_DIR/vscode-portable/code --no-sandbox --disable-gpu > /dev/null 2>&1 &\"" >> "$ALIAS_FILE"
+  fi
+
+  echo -e "${b_green}[SUCESSO]${nc} VS Code (Portable) instalado manualmente!"
+}
+
+install_miniconda3_manual() {
+  echo -e "${b_cyan}[INFO]${nc} Instalando Miniconda3 manualmente..."
+  
+  cd "$INSTALL_DIR"
+  rm -rf miniconda3-dir
+  mkdir -p miniconda3-dir
+  cd miniconda3-dir
+
+  echo "Baixando Miniconda3..."
+  # Link da versão mais recente (Python 3.x)
+  wget -c "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh" -O miniconda3.sh
+  
+  echo "Instalando..."
+  bash miniconda3.sh -b -p "$INSTALL_DIR/miniconda3-dir/miniconda3"
+  rm miniconda3.sh
+  
+  if ! grep -q "alias conda=" "$ALIAS_FILE"; then
+      echo "alias conda=\"$INSTALL_DIR/miniconda3-dir/miniconda3/bin/conda\"" >> "$ALIAS_FILE"
+  fi
+
+  echo -e "${b_green}[SUCESSO]${nc} Miniconda3 instalado manualmente!"
+}
+
+install_godot_engine_manual() {
+  echo -e "${b_cyan}[INFO]${nc} Instalando Godot Engine manualmente..."
+  
+  cd "$INSTALL_DIR"
+  rm -rf godot-dir
+  mkdir -p godot-dir
+  cd godot-dir
+  
+  echo "Baixando Godot Engine..."
+  # Link da versão 3.5.1 (Estável)
+  wget -c "https://downloads.tuxfamily.org/godotengine/3.5.1/mono/Godot_v3.5.1-stable_mono_x11_64.zip" -O godot.zip
+  # link da versão 4.3 (Stable)
+  # wget -c "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip" -O godot.zip
+
+  echo "Extraindo..."
+  unzip godot.zip > /dev/null
+  rm godot.zip
+  mv Godot_v3.5.1-stable_mono_x11_64 godot4_
+  
+  if ! grep -q "alias godot=" "$ALIAS_FILE"; then
+      echo "alias godot=\"$INSTALL_DIR/godot-dir/godot4_ --no-sandbox --disable-gpu > /dev/null 2>&1 &\"" >> "$ALIAS_FILE"
+  fi
+  
+  echo -e "${b_green}[SUCESSO]${nc} Godot Engine instalado manualmente!"
+}
+
+install_dbeaver_manual() {
+  echo -e "${b_cyan}[INFO]${nc} Instalando DBeaver Community manualmente..."
+  
+  cd "$INSTALL_DIR"
+  rm -rf dbeaver-dir
+  mkdir -p dbeaver-dir
+  cd dbeaver-dir
+
+  echo "Baixando DBeaver..."
+  # Versão CE 24.0.0 (Linux tar.gz)
+  wget -c "https://dbeaver.io/files/24.0.0/dbeaver-ce-24.0.0-linux.gtk.x86_64.tar.gz" -O dbeaver.tar.gz
+
+  echo "Extraindo..."
+  tar -xvf dbeaver.tar.gz > /dev/null
+  rm dbeaver.tar.gz
+  # A pasta extraída chama-se 'dbeaver'
+  mv dbeaver dbeaver-bin
+
+  if ! grep -q "alias dbeaver=" "$ALIAS_FILE"; then
+      echo "alias dbeaver=\"$INSTALL_DIR/dbeaver-dir/dbeaver-bin/dbeaver > /dev/null 2>&1 &\"" >> "$ALIAS_FILE"
+  fi
+
+  echo -e "${b_green}[SUCESSO]${nc} DBeaver Community instalado manualmente!"
+}
+
+install_postman_manual() {
+  echo -e "${b_cyan}[INFO]${nc} Instalando Postman manualmente..."
+  
+  cd "$INSTALL_DIR"
+  rm -rf postman-dir
+  mkdir -p postman-dir
+  cd postman-dir
+
+  echo "Baixando Postman..."
+  # Link direto oficial (sempre latest, mas costuma ser estável em estrutura)
+  wget -c "https://dl.pstmn.io/download/latest/linux64" -O postman.tar.gz
+
+  echo "Extraindo..."
+  tar -xvf postman.tar.gz > /dev/null
+  rm postman.tar.gz
+  # A pasta extraída chama-se 'Postman'
+  mv Postman postman-bin
+
+  if ! grep -q "alias postman=" "$ALIAS_FILE"; then
+    # Postman também é Electron
+    echo "alias postman=\"$INSTALL_DIR/postman-dir/postman-bin/Postman --no-sandbox --disable-gpu > /dev/null 2>&1 &\"" >> "$ALIAS_FILE"
+  fi
+
+  echo -e "${b_green}[SUCESSO]${nc} Postman instalado manualmente!"
+}
+
+

@@ -12,9 +12,11 @@ esac
 
 # Carregar Módulos de Configuração (~/.bash_config)
 if [ -d ~/.bash_config ]; then
-    for file in ~/.bash_config/*.sh; do
+    shopt -s globstar
+    for file in ~/.bash_config/**/*.sh; do
         [ -r "$file" ] && source "$file"
     done
+    shopt -u globstar
 fi
 
 # Configuração de Autocomplete do Sistema

@@ -2,12 +2,6 @@
 # FUNÇÃO ORQUESTRADORA - Instalação de ferramentas para laboratório CIN
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-IS_ADMIN=""
-INSTALL_DIR="$HOME/tools"
-ALIAS_FILE="$INSTALL_DIR/tools.bash"
-BASH_ALIASES="$HOME/.bash_config/aliases.sh"
-BLACK_WHOLE="/dev/null"
-
 make_path(){
   # 1. Garante que o arquivo de aliases existe
   if [ ! -f "$ALIAS_FILE" ]; then
@@ -27,24 +21,24 @@ make_path(){
 }
 
 setup_computer_cin(){
-    make_path 
-    check_admin
+  make_path 
+  check_admin
 
-    install_system_base_cin
+  #install_system_base_cin
 
-    # Install productivity tools
-    install_obsidian_manual
-    install_todoist_manual
-    install_bitwarden_manual
+  # Install productivity tools
+  install_obsidian_manual
+  install_todoist_manual
+  install_bitwarden_manual
 
-    # Install dev tools
-    install_vscode_portable
-    install_github_cli
-    install_godot_engine_manual
+  # Install dev tools
+  install_vscode_portable
+  install_github_cli
+  install_godot_engine_manual
 
-    # Install generic tools
-    install_calibre_manual
-    install_gimp_manual
-    install_drawio_manual
+  # Install generic tools
+  install_calibre_manual
+  install_gimp_manual
+  install_drawio_manual
 
 }

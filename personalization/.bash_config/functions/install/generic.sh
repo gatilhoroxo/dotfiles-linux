@@ -8,7 +8,7 @@
 install_browser() {
   echo -e "${b_cyan}[INFO]${nc} Instalando Google Chrome..."
   
-  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb || return 1
   sudo apt install ./google-chrome*.deb -y
   rm google-chrome*.deb
   
@@ -30,9 +30,9 @@ install_calibre_manual() {
 
   echo "Baixando Calibre..."
   # Link da versão estável mais recente
-  wget -c "https://download.calibre-ebook.com/linux64-installer.sh" -O calibre-installer.sh
+  wget -c "https://download.calibre-ebook.com/linux64-installer.sh" -O calibre-installer.sh || return 1
   chmod +x calibre-installer.sh
-  # wget -c "https://download.calibre-ebook.com/6.29.0/calibre-6.29.0-x86_64.txz" -O calibre.txz
+  # wget -c "https://download.calibre-ebook.com/6.29.0/calibre-6.29.0-x86_64.txz" -O calibre.txz || return 1
   # tar -xvf calibre.txz > /dev/null
   # rm calibre.txz
 
@@ -58,7 +58,7 @@ install_gimp_manual() {
 
   echo "Baixando GIMP..."
   # Link da versão 2.10.34 (Estável)
-  wget -c "https://github.com/aferrero2707/gimp-appimage/releases/download/continuous/GIMP_AppImage-git-2.10.21-20201001-x86_64.AppImage" -O gimp.AppImage
+  wget -c "https://github.com/aferrero2707/gimp-appimage/releases/download/continuous/GIMP_AppImage-git-2.10.21-20201001-x86_64.AppImage" -O gimp.AppImage || return 1
   chmod +x gimp.AppImage
 
   echo "Extraindo..."
@@ -82,7 +82,7 @@ install_drawio_manual() {
 
   echo "Baixando Draw.io..."
   # Versão 29.0.3
-  wget -c "https://github.com/jgraph/drawio-desktop/releases/download/v29.0.3/drawio-x86_64-29.0.3.AppImage" -O drawio.AppImage
+  wget -c "https://github.com/jgraph/drawio-desktop/releases/download/v29.0.3/drawio-x86_64-29.0.3.AppImage" -O drawio.AppImage || return 1
   chmod +x drawio.AppImage
   
   echo "Extraindo..."

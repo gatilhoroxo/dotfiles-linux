@@ -2,6 +2,23 @@
 # FUNÇÕES DE INSTALAÇÃO - Ferramentas de desenvolvimento
 # ==============================================================================
 
+# Ferramentas de desenvolvimento: Git, GitHub CLI, Qt
+install_dev_tools() {
+  echo -e "${b_cyan}[INFO]${nc} Instalando ferramentas de desenvolvimento..."
+  
+  # Framework Qt
+  sudo apt install -y qtcreator qtbase5-dev qttools5-dev qt5-qmake
+  
+  # GitHub CLI
+  curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+  sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+  sysupdate 
+  sudo apt install gh -y
+  
+  echo -e "${b_green}[SUCESSO]${nc} Ferramentas de desenvolvimento instaladas!"
+}
+
 # Compiladores e ferramentas básicas de desenvolvimento
 install_dev_compilers() {
   echo -e "${b_cyan}[INFO]${nc} Instalando compiladores e ferramentas de desenvolvimento..."
@@ -29,43 +46,6 @@ install_languages() {
   echo -e "${b_green}[SUCESSO]${nc} Linguagens instaladas!"
 }
 
-# Ferramentas de desenvolvimento: Git, GitHub CLI, Qt
-install_dev_tools() {
-  echo -e "${b_cyan}[INFO]${nc} Instalando ferramentas de desenvolvimento..."
-  
-  # Framework Qt
-  sudo apt install -y qtcreator qtbase5-dev qttools5-dev qt5-qmake
-  
-  # GitHub CLI
-  curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-  sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
-  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-  sysupdate 
-  sudo apt install gh -y
-  
-  echo -e "${b_green}[SUCESSO]${nc} Ferramentas de desenvolvimento instaladas!"
-}
-
-# Ferramentas de eletrônica: KiCad, Arduino, PlatformIO, Octave
-install_electronics() {
-  echo -e "${b_cyan}[INFO]${nc} Instalando ferramentas de eletrônica..."
-  
-  # Shell/Terminal melhorado
-  sudo apt install zsh -y 
-  
-  # Design de PCB
-  sudo apt install kicad -y
-  
-  # Computação científica
-  sudo apt install octave gnuplot gnuplot-x11 -y
-  
-  # Plataformas de desenvolvimento embarcado
-  sudo snap install arduino
-  sudo apt install platformio -y
-  
-  echo -e "${b_green}[SUCESSO]${nc} Ferramentas de eletrônica instaladas!"
-}
-
 # Ferramentas de containerização: Docker
 install_containers() {
   echo -e "${b_cyan}[INFO]${nc} Instalando Docker e Docker Compose..."
@@ -91,7 +71,7 @@ install_github_cli() {
   
   echo "Baixando GitHub CLI v2.63.0..."
   # Link oficial do binário para Linux x64
-  wget -c "https://github.com/cli/cli/releases/download/v2.63.0/gh_2.63.0_linux_amd64.tar.gz" -O gh.tar.gz
+  wget -c "https://github.com/cli/cli/releases/download/v2.63.0/gh_2.63.0_linux_amd64.tar.gz" -O gh.tar.gz || return 1
   
   echo "Extraindo..."
   tar -xvf gh.tar.gz > /dev/null
@@ -117,9 +97,9 @@ install_vscode_portable() {
 
   echo "Baixando VS Code Portable..."
   # Link da versão estável mais recente
-  wget -c "https://update.code.visualstudio.com/latest/linux-x64-zip/stable" -O vscode.zip
+  wget -c "https://update.code.visualstudio.com/latest/linux-x64-zip/stable" -O vscode.zip || return 1
   
-  #wget -c "https://code.visualstudio.com/sha/download?build=stable&os=linux-x64" -O vscode.tar.gz
+  #wget -c "https://code.visualstudio.com/sha/download?build=stable&os=linux-x64" -O vscode.tar.gz || return 1
   
   #echo "Extraindo..."
   #tar -xvf vscode.tar.gz > /dev/null
@@ -149,7 +129,7 @@ install_miniconda3_manual() {
 
   echo "Baixando Miniconda3..."
   # Link da versão mais recente (Python 3.x)
-  wget -c "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh" -O miniconda3.sh
+  wget -c "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh" -O miniconda3.sh || return 1
   
   echo "Instalando..."
   bash miniconda3.sh -b -p "$INSTALL_DIR/miniconda3-dir/miniconda3"
@@ -172,9 +152,9 @@ install_godot_engine_manual() {
   
   echo "Baixando Godot Engine..."
   # Link da versão 3.5.1 (Estável)
-  wget -c "https://downloads.tuxfamily.org/godotengine/3.5.1/mono/Godot_v3.5.1-stable_mono_x11_64.zip" -O godot.zip
+  wget -c "https://downloads.tuxfamily.org/godotengine/3.5.1/mono/Godot_v3.5.1-stable_mono_x11_64.zip" -O godot.zip || return 1
   # link da versão 4.3 (Stable)
-  # wget -c "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip" -O godot.zip
+  # wget -c "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip" -O godot.zip || return 1
 
   echo "Extraindo..."
   unzip godot.zip > /dev/null
@@ -198,7 +178,7 @@ install_dbeaver_manual() {
 
   echo "Baixando DBeaver..."
   # Versão CE 24.0.0 (Linux tar.gz)
-  wget -c "https://dbeaver.io/files/24.0.0/dbeaver-ce-24.0.0-linux.gtk.x86_64.tar.gz" -O dbeaver.tar.gz
+  wget -c "https://dbeaver.io/files/24.0.0/dbeaver-ce-24.0.0-linux.gtk.x86_64.tar.gz" -O dbeaver.tar.gz || return 1
 
   echo "Extraindo..."
   tar -xvf dbeaver.tar.gz > /dev/null
@@ -223,7 +203,7 @@ install_postman_manual() {
 
   echo "Baixando Postman..."
   # Link direto oficial (sempre latest, mas costuma ser estável em estrutura)
-  wget -c "https://dl.pstmn.io/download/latest/linux64" -O postman.tar.gz
+  wget -c "https://dl.pstmn.io/download/latest/linux64" -O postman.tar.gz || return 1
 
   echo "Extraindo..."
   tar -xvf postman.tar.gz > /dev/null

@@ -37,7 +37,7 @@ install_obsidian_manual() {
 
   echo "Baixando Obsidian..."
   # Link da versão 1.6.7 (Estável)
-  wget -c "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/Obsidian-1.6.7.AppImage" -O obsidian.AppImage
+  wget -c "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/Obsidian-1.6.7.AppImage" -O obsidian.AppImage || return 1
   chmod +x obsidian.AppImage 
 
   echo "Extraindo..."
@@ -63,7 +63,7 @@ install_todoist_manual() {
 
   echo "Baixando Todoist..."
   # Link da versão 2.6.3 (Estável)
-  wget -c "https://github.com/todoist/todoist-linux/releases/download/v2.6.3/Todoist-2.6.3.AppImage" -O todoist.AppImage
+  wget -c "https://github.com/todoist/todoist-linux/releases/download/v2.6.3/Todoist-2.6.3.AppImage" -O todoist.AppImage || return 1
   chmod +x todoist.AppImage 
   
   echo "Extraindo..."
@@ -88,7 +88,7 @@ install_bitwarden_manual() {
 
   echo "Baixando Bitwarden..."
   # Link da versão 1.29.1 (Estável)
-  wget -c "https://github.com/bitwarden/desktop/releases/download/v1.29.1/Bitwarden-1.29.1.AppImage" -O bitwarden.AppImage
+  wget -c "https://github.com/bitwarden/desktop/releases/download/v1.29.1/Bitwarden-1.29.1.AppImage" -O bitwarden.AppImage || return 1
   chmod +x bitwarden.AppImage 
   
   echo "Extraindo..."

@@ -59,7 +59,7 @@ awake(){
     ) &
     
     echo $! > /tmp/awake.pid
-    echo "awake iniciado por $1 minutos (PID $(cat /tmp/awake.pid))"
+    date && echo "awake iniciado por $1 minutos (PID $(cat /tmp/awake.pid))"
   fi
 }
 

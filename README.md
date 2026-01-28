@@ -6,6 +6,6 @@ Brincando com Ubuntu
 cd ~
 git clone https://github.com/gatilhoroxo/legendary-fiesta
 cp -r legendary-fiesta/personalization/.bash_config ~/
-cp [.bashrc](http://_vscodecontentref_/8) ~/
-source [.bashrc](http://_vscodecontentref_/9)
+cp legendary-fiesta/personalization/.bashrc ~/
+source ~/.bashrc
 ```

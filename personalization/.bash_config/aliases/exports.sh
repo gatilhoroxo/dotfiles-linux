@@ -11,15 +11,17 @@ export PATH=/usr/local/msp430/bin:$PATH
 
 # --- Configurações de Limpeza da Home (XDG) ---
 
-# RUST (Rustup e Cargo)
+# --- RUST ---
 export RUSTUP_HOME="$HOME/.local/share/rustup"
-export CARGO_HOME="$HOME/.local/share/cargo"
-# Adiciona os binários do Cargo ao PATH (para os comandos funcionarem)
-export PATH="$CARGO_HOME/bin:$PATH"
 
-# DOTNET
-# Define onde o .dotnet armazena ferramentas e caches globais
-export DOTNET_CLI_HOME="$HOME/.local/share/dotnet"
-# Opcional: Se você usa ferramentas globais do dotnet, adicione ao PATH:
-export PATH="$HOME/.local/share/dotnet/tools:$PATH"
+# RubyGems
+export GEM_HOME="$HOME/.local/share/gems"
+export GEM_PATH="$GEM_HOME"
+export PATH="$GEM_HOME/bin:$PATH"
+
+# simplificando o home
+export XDG_CONFIG_HOME="$HOME/.local/config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.local/cache"
+export XDG_STATE_HOME="$HOME/.local/state"
 

@@ -36,7 +36,7 @@ show_install_plan() {
   fi
   
   if [ "$INSTALL_PRODUCTIVITY" = true ]; then
-    echo -e "${b_green}✓${nc} Produtividade: Bitwarden, Flatpak, Obsidian, Todoist"
+    echo -e "${b_green}✓${nc} Produtividade: Bitwarden, Flatpak, Obsidian, Todoist, HTTrack"
     ((install_count++))
   fi
   

@@ -30,6 +30,7 @@ setup_computer_cin(){
   install_obsidian_manual
   install_todoist_manual
   install_bitwarden_manual
+  install_httrack_manual
 
   # Install dev tools
   install_vscode_portable

@@ -7,8 +7,10 @@ install_productivity_tools() {
   
   sudo snap install bitwarden -y && sudo snap connect bitwarden:password-manager-service
   sudo apt install flatpak -y
-  sudo snap install obsidian --classic
-  sudo snap install todoist
+  sudo snap install obsidian --classic -y
+  sudo snap install todoist -y
+  sudo apt install httrack -y
+  sudo apt install kiwix -y
   
   echo -e "${b_green}[SUCESSO]${nc} Ferramentas de produtividade instaladas!"
 }
@@ -102,4 +104,23 @@ install_bitwarden_manual() {
   
   echo -e "${b_green}[SUCESSO]${nc} Bitwarden instalado manualmente!"
 }
-    
+
+install_httrack_manual() {
+  echo -e "${b_cyan}[INFO]${nc} Instalando HTTrack manualmente..."
+
+  cd "$INSTALL_DIR"
+
+  echo "Baixando HTTrack..."
+  wget https://download.httrack.com/cserv.php3?File=httrack-3.49.2.tar.gz -O httrack.tar.gz || return 1
+  tar -xzf httrack.tar.gz 
+  mv httrack-3.49.2 httrack-dir
+
+  ./configure --prefix=$HOME/.local
+  make
+  make install
+
+  # Adicione o diretório ao PATH (se necessário)
+  export PATH="$HOME/.local/bin:$PATH"
+
+  echo -e "${b_green}[SUCESSO]${nc} HTTrack instalado manualmente!"
+}

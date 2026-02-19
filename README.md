@@ -5,7 +5,7 @@ Brincando com Ubuntu
 ```bash
 cd ~
 git clone https://github.com/gatilhoroxo/legendary-fiesta
-cp -r legendary-fiesta/personalization/.bash_config ~/
-cp legendary-fiesta/personalization/.bashrc ~/
+cp -r legendary-fiesta/my_config/.bash_config ~/
+cp legendary-fiesta/my_config/.bashrc ~/
 source ~/.bashrc
 ```

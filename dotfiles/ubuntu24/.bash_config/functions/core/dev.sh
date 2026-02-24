@@ -21,11 +21,6 @@ myip() {
 
 # === Rust Book server ===
 
-# Porta padrão e diretório padrão
-RUSTBOOK_PORT=8000
-RUSTBOOK_DIR="$HOME/.local/share/rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/doc/rust/html"
-RUSTBOOK_PID_FILE="/tmp/.rustbook.pid"
-
 rustbook_start() {
 
   # Se já existe PID, checa se o processo está vivo

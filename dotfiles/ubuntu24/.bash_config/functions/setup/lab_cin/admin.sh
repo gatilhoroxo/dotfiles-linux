@@ -1,8 +1,6 @@
 
 # Verifica Admin (Grupo sudo ou Root)
 
-IS_ADMIN=""
-
 check_admin(){
   if [ "$EUID" -eq 0 ]; then
     IS_ADMIN=true

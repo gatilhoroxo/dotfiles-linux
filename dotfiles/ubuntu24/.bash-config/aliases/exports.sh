@@ -4,6 +4,10 @@
 export EDITOR=nano
 export LANG=pt_BR.UTF-8
 
+# de configuração de arquivos para simplificar o home
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
 # Exports MSP430
 #export PATH=/opt/ti/msp430-gcc/bin:$PATH
 export PATH=/usr/local/msp430/bin:$PATH
@@ -22,10 +26,4 @@ export PATH="$GEM_HOME/bin:$PATH"
 # FLY.io
 export FLYCTL_INSTALL="$HOME/.config/fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
-
-# de configuração de arquivos para simplificar o home
-export XDG_CONFIG_HOME="$HOME/.local/config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.local/cache"
-export XDG_STATE_HOME="$HOME/.local/state"
 

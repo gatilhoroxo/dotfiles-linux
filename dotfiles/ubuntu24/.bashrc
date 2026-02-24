@@ -10,10 +10,10 @@ case $- in
       *) return;;
 esac
 
-# Carregar Módulos de Configuração (~/.bash_config)
-if [ -d ~/.bash_config ]; then
+# Carregar Módulos de Configuração (~/.bash-config)
+if [ -d ~/.bash-config ]; then
     shopt -s globstar
-    for file in ~/.bash_config/**/*.sh; do
+    for file in ~/.bash-config/**/*.sh; do
         [ -r "$file" ] && source "$file"
     done
     shopt -u globstar

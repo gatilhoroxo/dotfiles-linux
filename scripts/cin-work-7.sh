@@ -28,9 +28,8 @@ mkdir $tools_dir && touch $alias_file
 mkcd $tools_dir/gh-dir
 wget -c "https://github.com/cli/cli/releases/download/v2.63.0/gh_2.63.0_linux_amd64.tar.gz" -O gh.tar.gz || return 1
 tar -xvf gh.tar.gz > /dev/null
-mv gh_*/* .
-rm gh.tar.gz && rmdir gh_*
-echo "alias gh='$tools_dir/gh-dir/bin/gh'" >> $alias_file
+rm gh.tar.gz 
+echo "alias gh='$tools_dir/gh-dir/gh_2.63.0_linux_amd64/bin/gh'" >> $alias_file
 
 # configurando o vivaldi
 mkcd $tools_dir/vivaldi-dir

@@ -3,13 +3,13 @@
 ## v0.0.2-beta (undone)
 
 ### Features
-- Arquivos de configuração de usuário para mint22
+- Scripts para trabalho rápido
 
 ### Changed
 - Melhorar os arquivos de personalização local de experimentos
 
 ### Fixed
-- Modularizar e corrigir certas funções de ubuntu24 que podem quebrar
+- Modularização de configuração de usuário para linux
 
 ## v0.0.1-beta
 

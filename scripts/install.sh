@@ -1,4 +1,4 @@
 cd ~
-cp -r legendary-fiesta/dotfiles/ubuntu24/.bash_config ~/
-cp legendary-fiesta/dotfiles/ubuntu24/.bashrc ~/
+cp -r dotfiles-linux/distros/base/.bash-config ~/
+cp dotfiles-linux/distros/base/.bashrc ~/
 source ~/.bashrc

@@ -1,6 +1,6 @@
 # --- Caminhos base ---
-export INSTALL_DIR="$HOME/tools"
-export ALIAS_FILE="$INSTALL_DIR/tools.bash"
+export INSTALL_DIR="$HOME/files/tools"
+export ALIAS_FILE="$INSTALL_DIR/tools-aliases.bash"
 export BASH_ALIASES="$HOME/.bash_config/aliases/exports.sh"
 export BLACK_WHOLE="/dev/null"
 

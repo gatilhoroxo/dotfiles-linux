@@ -1,5 +1,6 @@
 # dotfiles-linux
 Legendery fiesta com Ubuntu e outros.
+
 Configuração pessoal de ambiente Ubuntu.
 
 ## O que está aqui
@@ -9,7 +10,7 @@ Configuração pessoal de ambiente Ubuntu.
 ## Instalação
 ```bash
 git clone https://github.com/gatilhoroxo/dotfiles-linux 
-cd ~/dotfiles-linux && bash scripts/install.sh
+cd ~/dotfiles-linux && bash scripts/cin-work-7.sh
 ```
 
 ## Uso após instalar
@@ -22,6 +23,9 @@ cd ~/dotfiles-linux && bash scripts/install.sh
 
 ## Estrutura
 
-distros - ubuntu24 e mint22
+distros - base, ubuntu24 e mint22
+
 personalization - local stuff
+
+scripts - one setup of this
 

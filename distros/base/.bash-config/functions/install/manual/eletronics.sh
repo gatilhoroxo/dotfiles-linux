@@ -1,61 +1,6 @@
-# ================================================================
-# Funções de instalação de softwares de eletrônica
-# ================================================================
-
-# Ferramentas de eletrônica: KiCad, Arduino, PlatformIO, Octave
-install_electronics() {
-  echo -e "${b_cyan}[INFO]${nc} Instalando ferramentas de eletrônica..."
-  
-  # Shell/Terminal melhorado
-  sudo apt install zsh -y 
-  
-  # Design de PCB
-  sudo apt install kicad -y
-  
-  # Computação científica
-  sudo apt install octave gnuplot gnuplot-x11 -y
-  
-  # Plataformas de desenvolvimento embarcado
-  sudo snap install arduino
-  sudo apt install platformio -y
-  
-  echo -e "${b_green}[SUCESSO]${nc} Ferramentas de eletrônica instaladas!"
-}
-
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 # Extração manual de alguns aplicativos (binários)
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-install_arduino_manual() {
-  echo -e "${b_cyan}[INFO]${nc} Instalando Arduino IDE manualmente..."
-  
-  cd "$INSTALL_DIR"
-  rm -rf arduino-dir
-  mkdir -p arduino-dir
-  cd arduino-dir
-
-  echo "Baixando Arduino IDE..."
-  # Link da versão 1.8.19 (Estável)
-  wget -c "https://downloads.arduino.cc/arduino-1.8.19-linux64.tar.xz" -O arduino.tar.xz || return 1
-  
-  echo "Extraindo..."
-  tar -xf arduino.tar.xz > /dev/null
-  rm arduino.tar.xz
-
-  #wget -c "https://downloads.arduino.cc/arduino-ide/arduino-ide_2.3.2_Linux_64bit.AppImage" -O arduino.AppImage || return 1
-  # chmod +x arduino.AppImage
-  # echo "Extraindo..."
-  # ./arduino.AppImage --appimage-extract > /dev/null
-  # mv squashfs-root arduino-files
-  # rm arduino.AppImage
-  #
-  
-  if ! grep -q "alias arduino=" "$ALIAS_FILE"; then
-      echo "alias arduino=\"$INSTALL_DIR/arduino-dir/arduino-1.8.19/arduino --no-sandbox --disable-gpu > /dev/null 2>&1 &\"" >> "$ALIAS_FILE"
-  fi
-
-  echo -e "${b_green}[SUCESSO]${nc} Arduino IDE instalado manualmente!"
-}
 
 install_logisim_evolution() {
   echo -e "${b_cyan}[INFO]${nc} Instalando Logisim Evolution..."

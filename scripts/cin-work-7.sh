@@ -9,7 +9,7 @@ cp dotfiles-linux/distros/base/.bashrc ~/
 source ~/.bashrc
 
 # instalando rust do zero 
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -y
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 #instalando platformio
 curl -fsSL -o get-platformio.py https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py
 python3 get-platformio.py

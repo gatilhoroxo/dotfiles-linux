@@ -5,12 +5,12 @@
 install_productivity_tools() {
   echo -e "${b_cyan}[INFO]${nc} Instalando ferramentas de produtividade..."
   
-  sudo snap install bitwarden -y && sudo snap connect bitwarden:password-manager-service
-  sudo apt install flatpak -y
-  sudo snap install obsidian --classic -y
-  sudo snap install todoist -y
-  sudo apt install httrack -y
-  sudo apt install kiwix -y
+  sudo snap install bitwarden && sudo snap connect bitwarden:password-manager-service
+  sudo snap install obsidian --classic
+  sudo snap install todoist 
+  sudo snap install notion-desktop
+  sudo apt install -y httrack kiwix flatpak
+  sudo apt install -y okular 
   
   echo -e "${b_green}[SUCESSO]${nc} Ferramentas de produtividade instaladas!"
 }

@@ -6,9 +6,12 @@ git clone https://github.com/gatilhoroxo/dotfiles-linux.git
 # mudando a configuração do terminal
 cp -r dotfiles-linux/distros/base/.bash-config ~/
 cp dotfiles-linux/distros/base/.bashrc ~/
+mkdir ~/.local/storage && mkdir ~/.local/storage/shell
+mv ~/.bash_history ~/.local/storage/shell/.bash_history 
 source ~/.bashrc
 
 # instalando rust do zero 
+mkdir ~/.local/storage/dev
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 #instalando platformio

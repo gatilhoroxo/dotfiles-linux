@@ -24,9 +24,11 @@ extract() {
 
 # Copia o conteúdo de um arquivo para o clipboard (requer xclip)
 # Instale antes: sudo apt install xclip
-# Uso: copyfile id_rsa.pub
 copyfile() {
-  if [ -f "$1" ]; then
+  if [ -z "$1" ]; then
+    echo "Uso: copyfile id_rsa.pub"
+    echo "Requer xclip instalado!"
+  elif [ -f "$1" ]; then
     xclip -selection clipboard < "$1"
     echo "Conteúdo de '$1' copiado para a área de transferência."
   else

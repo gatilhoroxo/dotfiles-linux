@@ -8,7 +8,8 @@ setup_directories() {
   echo -e "${b_cyan}[INFO]${nc} Criando estrutura de diretórios..."
   
   cd ~
-  mkdir -p ~/develop/{notas,projects,ufpe} ~/files/tools/{arduino-dir,python-dir,godot-dir}
+  mkdir -p ~/develop/{lab,notas,projetos,ufpe} ~/files/{books,college,tools}
+  mkdir -p ~/develop/lab/{linux,docker,redes,arquitetura,embarcados,ros2,simulacao,freecad,pesquisa}
   
   echo -e "${b_green}[SUCESSO]${nc} Diretórios criados!"
 }

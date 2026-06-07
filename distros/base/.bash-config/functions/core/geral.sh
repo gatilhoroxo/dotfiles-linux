@@ -2,37 +2,41 @@
 # Atualiza todo o sistema com um único comando
 # Uso: sysupdate
 sysupdate() {
-    sudo apt update && sudo apt full-upgrade -y 
-    sudo apt autoremove -y && sudo apt autoclean
-    echo "Sistema atualizado e limpo!"
+  sudo apt update && sudo apt full-upgrade -y 
+  sudo apt autoremove -y && sudo apt autoclean
+  echo "Sistema atualizado e limpo!"
 }
 
 # criar diretorio e entrar nele
 mkcd() {
-  mkdir -p "$1"
-  cd "$1" || return
+  if [ -z "$1" ]; then 
+    echo "Uso: mkcd 'Nome do diretório'"
+  else 
+    mkdir -p "$1"
+    cd "$1" || return
+  fi
 }
 
 # Sobe 'n' níveis de diretório
 # Uso: up 2 (sobe 2 pastas), up (sobe 1 pasta)
 up() {
-    local d=""
-    limit=$1
-    for ((i=1 ; i <= limit ; i++)); do
-        d=$d/..
-    done
-    d=$(echo $d | sed 's/^\///')
-    if [ -z "$d" ]; then
-        d=..
-    fi
-    cd $d
+  local d=""
+  limit=$1
+  for ((i=1 ; i <= limit ; i++)); do
+    d=$d/..
+  done
+  d=$(echo $d | sed 's/^\///')
+  if [ -z "$d" ]; then
+    d=..
+  fi
+  cd $d
 }
 
 awake(){
   if [ -z "$1" ]; then
     echo "Uso: awake <minutos>"
   else
-   (
+    (
       # salvar estado atual
       IDLE_DELAY=$(gsettings get org.gnome.desktop.session idle-delay)
       LOCK_ENABLED=$(gsettings get org.gnome.desktop.screensaver lock-enabled)

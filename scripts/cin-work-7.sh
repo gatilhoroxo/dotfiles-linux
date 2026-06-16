@@ -1,11 +1,11 @@
 # início
 set -e
-mkdir ~/develop && cd ~/develop
+mkdir -p ~/develop/random && cd ~/develop/random
 git clone https://github.com/gatilhoroxo/dotfiles-linux.git
 
 # mudando a configuração do terminal
-cp -r dotfiles-linux/distros/base/.bash-config ~/
-cp dotfiles-linux/distros/base/.bashrc ~/
+cp -r dotfiles-linux/distros/base/.bash-config ~/.bash-config
+cp dotfiles-linux/distros/base/.bashrc ~/.bashrc
 mkdir ~/.local/storage && mkdir ~/.local/storage/shell
 mv ~/.bash_history ~/.local/storage/shell/.bash_history 
 source ~/.bashrc
@@ -21,10 +21,14 @@ echo "export PATH=$PATH:$HOME/.local/bin" >> ~/.bash-config/aliases/exports.sh
 
 # code dotfiles-linux
 
+# setup dos diretorios
+mkdir -p ~/files/{books,college,notes,tools}
+mkdir -p ~/develop/{lab,notas,projetos,random,ufpe} 
+mkdir -p ~/develop/lab/{linux,docker,redes,arquitetura,embarcados,ros2,simulacao,freecad,pesquisa}
+
 # preparação
-mkdir ~/files
 alias_file="$HOME/files/tools/alias-tools.sh"
-mkdir $HOME/files/tools && touch $alias_file
+touch $alias_file
 
 # configurando o git cli
 mkcd $HOME/files/tools/gh-dir

@@ -23,8 +23,8 @@ echo "export PATH=$PATH:$HOME/.local/bin" >> ~/.bash-config/aliases/exports.sh
 
 # setup dos diretorios
 mkdir -p ~/files/{books,college,notes,tools}
-mkdir -p ~/develop/{lab,notas,projetos,random,ufpe} 
-mkdir -p ~/develop/lab/{linux,docker,redes,arquitetura,embarcados,ros2,simulacao,freecad,pesquisa}
+mkdir -p ~/develop/{archive,lab,notas,projetos,random,ufpe} 
+mkdir -p ~/develop/lab/{arquitetura,docker,embarcados,freecad,linux,pesquisa,redes,ros2,simulacao}
 
 # preparação
 alias_file="$HOME/files/tools/alias-tools.sh"

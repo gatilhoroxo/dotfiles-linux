@@ -1,5 +1,9 @@
+#!/bin/bash
+# ~/.bash-config/functions/core/files.sh
+
 # extrair arquivos comuns
-extract() {
+function extract() 
+{
   if [ -f "$1" ]; then
     local file="$1"          # ← Salva o nome do arquivo
     shift                    # ← Remove apenas para pegar flags extras
@@ -24,7 +28,8 @@ extract() {
 
 # Copia o conteúdo de um arquivo para o clipboard (requer xclip)
 # Instale antes: sudo apt install xclip
-copyfile() {
+function copyfile() 
+{
   if [ -z "$1" ]; then
     echo "Uso: copyfile id_rsa.pub"
     echo "Requer xclip instalado!"

@@ -1,14 +1,18 @@
+#!/bin/bash
+# ~/.bash-config/functions/core/geral.sh
 
 # Atualiza todo o sistema com um único comando
 # Uso: sysupdate
-sysupdate() {
+function sysupdate() 
+{
   sudo apt update && sudo apt full-upgrade -y 
   sudo apt autoremove -y && sudo apt autoclean
   echo "Sistema atualizado e limpo!"
 }
 
 # criar diretorio e entrar nele
-mkcd() {
+function mkcd() 
+{
   if [ -z "$1" ]; then 
     echo "Uso: mkcd 'Nome do diretório'"
   else 
@@ -17,9 +21,21 @@ mkcd() {
   fi
 }
 
+function xtitle () 
+{ 
+	echo -n -e "\033]0;$*\007"
+}
+
+function cd()
+{
+	builtin cd "$@" && xtitle $HOST: $PWD
+}
+
+
 # Sobe 'n' níveis de diretório
 # Uso: up 2 (sobe 2 pastas), up (sobe 1 pasta)
-up() {
+function up() 
+{
   local d=""
   limit=$1
   for ((i=1 ; i <= limit ; i++)); do
@@ -32,7 +48,10 @@ up() {
   cd $d
 }
 
-awake(){
+# deixar o sistema acordado por x minutos
+# teste: e se tirar as variaveis e a func restore para fora do parenteses (?)
+function awake()
+{
   if [ -z "$1" ]; then
     echo "Uso: awake <minutos>"
   else
@@ -67,7 +86,8 @@ awake(){
   fi
 }
 
-awake_stop() {
+function awake_stop() 
+{
   if [ -f /tmp/awake.pid ]; then
     PGID=$(cat /tmp/awake.pid)
     kill -- -"$PGID"

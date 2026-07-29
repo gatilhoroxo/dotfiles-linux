@@ -1,5 +1,8 @@
+#!/bin/bash
+# ~/.bash-config/functions/core/frufru.sh
+
 # Função para testar mensagens coloridas
-print_status() {
+function print_status() {
     echo -e "${b_green}[SUCESSO]${nc} O comando foi executado."
     echo -e "${b_red}[ERRO]${nc} Algo deu errado no processo."
     echo -e "${b_yellow}[AVISO]${nc} Tenha cuidado com este comando."
@@ -8,7 +11,7 @@ print_status() {
 }
 
 # Mostra todas as cores disponíveis
-show_colors() {
+function show_colors() {
     echo -e "\n--- Cores Normais ---"
     echo -e "${black}Black ${red}Red ${green}Green ${yellow}Yellow ${blue}Blue ${purple}Purple ${cyan}Cyan ${white}White ${nc}"
     

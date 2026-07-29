@@ -1,5 +1,9 @@
+#!/bin/bash
+# ~/.bash-config/functions/core/dev.sh
+
 #setando um usuario git
-setUserGit(){
+function setUserGit()
+{
   if [ -z "$1" && -z "$2" ]; then
     echo "Uso: setUserGit "Nome" "email" [--global]"
   elif [ "$3" == "--global" ]; then
@@ -15,46 +19,53 @@ setUserGit(){
 
 # Mostra seu IP local e IP público
 # Uso: myip
-myip() {
+function myip() 
+{
   echo "IP Local: $(hostname -I | cut -d' ' -f1)"
   echo "IP Público: $(curl -s ifconfig.me)"
 }
 
-# === Rust Book server ===
+# === Para testar ===
 
-rustbook_start() {
-  # Se já existe PID, checa se o processo está vivo
-  if [ -f "$RUSTBOOK_PID_FILE" ]; then
-    local pid
-    pid=$(cat "$RUSTBOOK_PID_FILE")
-    if kill -0 "$pid" 2>/dev/null; then
-      echo "Rust Book já está rodando (PID $pid)."
-      return 0
-    else
-      # PID antigo não existe mais, remove arquivo
-      rm "$RUSTBOOK_PID_FILE"
-    fi
-  fi
-
-  local port=${1:-$RUSTBOOK_PORT}      # permite sobrescrever a porta ao chamar
-  local dir=${2:-$RUSTBOOK_DIR}        # permite sobrescrever o diretório
-  if [ ! -d "$dir" ]; then
-    echo "Diretório '$dir' não existe."
-    return 1
-  fi
-  cd "$dir" || return
-  nohup python3 -m http.server "$port" > /dev/null 2>&1 &
-  echo $! > "$RUSTBOOK_PID_FILE"
-  echo "Rust Book rodando em http://localhost:$port"
-  cd ~
+function psgrep()
+{
+	ps -aux | grep $1 | grep -v grep
 }
 
-rustbook_stop() {
-  if [ -f "$RUSTBOOK_PID_FILE" ]; then
-    kill $(cat "$RUSTBOOK_PID_FILE") 2>/dev/null
-    rm "$RUSTBOOK_PID_FILE"
-    echo "Rust Book parado."
-  else
-    echo "Servidor não está rodando."
-  fi
+function pskill()
+{
+	local pid
+
+	pid=$(ps -ax | grep $1 | grep -v grep | awk '{ print $1 }')
+	echo -n "killing $1 (process $pid)..."
+	kill -9 $pid
+	echo "slaughtered."
 }
+ 
+# "repeat" command.  Like:
+#	repeat 10 echo foo
+function repeat ()
+{ 
+  local count="$1" i;
+  shift;
+  for i in $(_seq 1 "$count");
+  do
+    eval "$@";
+  done
+}
+
+# Subfunction needed by `repeat'.
+function _seq ()
+{ 
+  local lower upper output;
+  lower=$1 upper=$2;
+
+  if [ $lower -ge $upper ]; then return; fi
+  while [ $lower -lt $upper ];
+  do
+    echo -n "$lower "
+      lower=$(($lower + 1))
+  done
+  echo "$lower"
+}
+

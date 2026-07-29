@@ -1,3 +1,4 @@
+#!/bin/bash
 # início
 set -e
 mkdir -p ~/develop/random && cd ~/develop/random

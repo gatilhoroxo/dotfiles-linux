@@ -1,4 +1,5 @@
-# ~/.bash_config/tools.sh
+#!/bin/bash
+# ~/.bash_config/aliases/exports.sh
 
 # editor de texto no terminal
 export EDITOR=nano

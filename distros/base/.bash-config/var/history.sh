@@ -1,8 +1,9 @@
+#!/bin/bash
 # ~/.bash-config/history.sh
 
 # Não colocar linhas duplicadas ou que comecem com espaço no histórico
 export HISTCONTROL="ignoreboth"
-export HISTIGNORE="ls:cd:pwd:history:clear"
+export HISTIGNORE="ls:cd:pwd:history:clear:[   ]*:&:bg:fg"
 export HISTFILE="$HOME/.local/storage/shell/.bash_history"
 
 # Adicionar ao arquivo de histórico, não sobrescrever

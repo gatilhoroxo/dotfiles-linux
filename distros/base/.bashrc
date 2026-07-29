@@ -1,6 +1,5 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc) for examples
 
 # personalização minha
 echo "se ache, mugiwara $USER"
@@ -11,13 +10,11 @@ case $- in
       *) return;;
 esac
 
-# Carregar Módulos de Configuração (~/.bash-config)
+# Carregar Módulos de Configuração (~/.bash-config/config.sh)
 if [ -d ~/.bash-config ]; then
-    shopt -s globstar
-    for file in ~/.bash-config/**/*.sh; do
-        [ -r "$file" ] && source "$file"
-    done
-    shopt -u globstar
+  if [ -f ~/.bash-config/config.sh ]; then
+    source config.sh
+  fi
 fi
 
 # enable programmable completion features (you don't need to enable

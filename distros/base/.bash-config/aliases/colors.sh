@@ -1,3 +1,5 @@
+#!/bin/bash
+# ~/.bash-config/aliases/colors.sh
 
 #cores
 export GREEN='\033[0;32m'

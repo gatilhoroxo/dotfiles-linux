@@ -1,3 +1,5 @@
+#!/bin/bash
+# ~/.bash-config/aliases/styles.sh
 
 # Estilos Extras
 export italic='\033[3m'      # Faz o italico

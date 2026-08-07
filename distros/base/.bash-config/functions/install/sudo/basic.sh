@@ -17,6 +17,7 @@ install_dev_base() {
 
   # utils tools
   sudo apt install -y git gh curl wget vim tmux htop btop ripgrep fd-find tree 
+  sudo snap install glab
   #GithubCLI_pre_install 
   # classic development
   sudo apt install -y build-essential gcc g++ gdb clang make

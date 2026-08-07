@@ -40,12 +40,19 @@ echo "#!/bin/bash" > $alias_file
 echo "# ~/files/tools/alias-tools.sh" >> $alias_file
 echo "source \$HOME/files/tools/alias-tools.sh" >> ~/.bash-config/aliases/toolz.sh
 
-# configurando o git cli
+# configurando o github cli
 mkcd $HOME/files/tools/gh-dir
 wget -c "https://github.com/cli/cli/releases/download/v2.63.0/gh_2.63.0_linux_amd64.tar.gz" -O gh.tar.gz || return 1
 tar -xvf gh.tar.gz > /dev/null
 rm gh.tar.gz 
 echo "alias gh='\$HOME/files/tools/gh-dir/gh_2.63.0_linux_amd64/bin/gh'" >> $alias_file
+
+# configurando o gitlab cli
+mkcd $HOME/files/tools/glab-dir
+wget -c "https://gitlab.com/gitlab-org/cli/-/releases/v1.112.0/downloads/glab_1.112.0_linux_amd64.tar.gz" -O glab.tar.gz || return 1
+tar -xvf glab.tar.gz > /dev/null
+rm glab.tar.gz
+echo "alias glab='\$HOME/files/tools/glab-dir/bin/glab'" >> $alias_file
 
 # configurando o obsidian
 mkcd $HOME/files/tools/obsidian-dir

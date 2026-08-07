@@ -62,3 +62,20 @@ install_vscode_portable() {
 
   echo -e "${b_green}[SUCESSO]${nc} VS Code (Portable) instalado manualmente!"
 }
+
+install_gitlab_cli() {
+  echo -e "${b_cyan}[INFO]${nc} Instalando GitLab CLI..."
+  
+  mkcd $HOME/files/tools/glab-dir
+
+  echo "Baixando GitLab CLI v1.112.0..."
+  wget -c "https://gitlab.com/gitlab-org/cli/-/releases/v1.112.0/downloads/glab_1.112.0_linux_amd64.tar.gz" -O glab.tar.gz || return 1
+  
+  echo "Extraindo..."
+  tar -xvf glab.tar.gz > /dev/null
+  rm glab.tar.gz
+  
+  echo "alias glab='\$HOME/files/tools/glab-dir/bin/glab'" >> $ALIAS_FILE
+
+  echo -e "${b_green}[SUCESSO]${nc} GitLab CLI instalado manualmente!"
+}

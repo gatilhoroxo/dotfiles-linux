@@ -3,6 +3,8 @@
 # Configuração de Novo Desktop Ubuntu - Funções de Instalação e Desinstalação
 # ==============================================================================
 
+# OBS: refazer esses scripts para serem mais coerentes com o que eu faço
+
 # Criar estrutura de diretórios para desenvolvimento
 setup_directories() {
   echo -e "${b_cyan}[INFO]${nc} Criando estrutura de diretórios..."

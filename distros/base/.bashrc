@@ -13,7 +13,7 @@ esac
 # Carregar Módulos de Configuração (~/.bash-config/config.sh)
 if [ -d ~/.bash-config ]; then
   if [ -f ~/.bash-config/config.sh ]; then
-    source config.sh
+    source ~/.bash-config/config.sh
   fi
 fi
 

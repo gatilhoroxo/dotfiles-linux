@@ -1,5 +1,5 @@
 #!/bin/bash
-# ~/.bash-config/functions/core/geral.sh
+# ~/.bash-config/functions/geral.sh
 
 # Atualiza todo o sistema com um único comando
 # Uso: sysupdate

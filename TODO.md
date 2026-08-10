@@ -6,3 +6,5 @@
 - [ ] Analisar necessidade das funções
 - [ ] Pesquisar sobre customizar o Gnome
 - [ ] Pesquisar sobre customizar o terminal
+- [ ] Investigar a estrutura da pasta `install-stuff`
+

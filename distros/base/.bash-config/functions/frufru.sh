@@ -1,5 +1,5 @@
 #!/bin/bash
-# ~/.bash-config/functions/core/frufru.sh
+# ~/.bash-config/functions/frufru.sh
 
 # Função para testar mensagens coloridas
 function print_status() {

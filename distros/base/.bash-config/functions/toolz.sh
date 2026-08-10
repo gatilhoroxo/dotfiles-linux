@@ -1,5 +1,5 @@
 #!/bin/bash
-# ~/.bash-config/functions/core/toolz.sh
+# ~/.bash-config/functions/toolz.sh
 
 # === Rust Book server ===
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-# ~/.bash-config/functions/core/files.sh
+# ~/.bash-config/functions/files.sh
 
 # extrair arquivos comuns
 function extract() 

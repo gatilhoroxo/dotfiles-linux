@@ -1,5 +1,5 @@
 #!/bin/bash
-# ~/.bash-config/functions/core/dev.sh
+# ~/.bash-config/functions/dev.sh
 
 #setando um usuario git
 function setUserGit()

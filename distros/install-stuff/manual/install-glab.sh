@@ -3,6 +3,7 @@ echo -e "${b_cyan}[INFO]${nc} Instalando GitLab CLI..."
 
 INSTALL_DIR="$HOME/files/tools"
 ALIAS_FILE="$INSTALL_DIR/alias-tools.sh"
+
 cd "$INSTALL_DIR"
 rm -rf glab-dir
 mkdir -p glab-dir

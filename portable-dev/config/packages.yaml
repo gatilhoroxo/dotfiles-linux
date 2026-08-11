@@ -1,0 +1,10 @@
+portable: 
+  - gh
+  - glab
+
+system:
+  - git
+  - gcc
+
+containers:
+  - ubuntu-dev

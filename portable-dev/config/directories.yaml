@@ -1,0 +1,37 @@
+directories-root:
+  - name: files
+    original: Documents
+    detination: ~/
+  - name: downloads
+    original: Downloads
+    detination: ~/
+  - name: images
+    original: Pictures
+    detination: ~/
+  - name: music
+    original: Music
+    detination: ~/
+  - name: videos
+    original: Videos
+    detination: ~/
+  - name: templates
+    original: Templates
+    detination: ~/
+  - name: public
+    original: Public
+    detination: ~/
+
+directories-root-extra:
+  - name: develop
+    detination: ~/
+
+directories-others:
+  - name: notas
+    destination: ~/develop
+  - name: ufpe
+    destination: ~/develop
+  - name: projetos
+    destination: ~/develop
+  - name: archive
+    destination: ~/develop
+  

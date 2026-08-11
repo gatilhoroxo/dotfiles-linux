@@ -1,0 +1,7 @@
+tools:
+  - name: obsidian
+    type: AppImage
+    link: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/Obsidian-1.6.7.AppImage
+    dir: obsidian-dir
+    alias: 'obsidian-dir/obsidian-files/obsidian --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+  

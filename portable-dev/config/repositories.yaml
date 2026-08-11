@@ -1,0 +1,5 @@
+repositories:
+  - name: notebook-attempt
+    state: private
+    url: https://github.com/gatilhoroxo/notebook-attempt.git
+    destination: ~/develop/notas

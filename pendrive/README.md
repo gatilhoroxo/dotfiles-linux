@@ -62,7 +62,7 @@ state/
 
 Depois de clonar o repositório desse pequeno projeto que tem os seguintes comandos
 
-1. `bootstrap`: prepara o próprio projeto (?)
+1. `bootstrap`: prepara o próprio projeto (cria state, cache, logs, bin/dev, bash, git, config inicial)
 2. `doctor`: faz um diagnóstico do que existe e do que não existe no sistema operacional
 3. `setup-myenv`: faz alterações permanentes. 
   - Configura diretórios existentes
@@ -73,6 +73,7 @@ Depois de clonar o repositório desse pequeno projeto que tem os seguintes coman
 5. `enter-dev`: prepara para uso de Python, Rust, Esp32, PlatformIO
 6. `update-env`: atualiza tudo (repositórios, gh, glab, scripts, configs, etc.)
 7. `clean-env`: limpa cache, downloads temporários e arquivos antigos. 
+8. `dev`: um executável
 
 ---
 
@@ -91,10 +92,14 @@ Depois de clonar o repositório desse pequeno projeto que tem os seguintes coman
 
 - Verificar se é possível instalar manualmente
   > é bom usar antes no meu pc para ver como é
+  - Proot
+  - Nix
+  - Docker
   - Podman
   - Distrobox
-  - Proot
   - Apptainer
-  - Nix
-
+- Repositórios parecidos com este
+  - https://github.com/Homebrew/brew
+  - https://nix.dev/contributing/how-to-contribute 
+  - https://github.com/4linux/ansible-basico
 ---

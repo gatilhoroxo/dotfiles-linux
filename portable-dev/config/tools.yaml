@@ -1,7 +1,108 @@
-tools:
+tools-padrao:
   - name: obsidian
+    dir: obsidian-dir
+    cmd: 'obsidian-dir/obsidian-files/obsidian --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+    alias: obsidian
     type: AppImage
     link: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/Obsidian-1.6.7.AppImage
-    dir: obsidian-dir
-    alias: 'obsidian-dir/obsidian-files/obsidian --no-sandbox --disable-gpu > /dev/null 2>&1 &'
-  
+
+tools-hard:
+  - name: arduino
+    dir: arduino-dir
+    cmd: 'arduino-dir/arduino-1.8.19/arduino --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+    alias: arduino
+    type: tar.xz
+    link: https://downloads.arduino.cc/arduino-1.8.19-linux64.tar.xz
+  - name: 
+    dir:
+    cmd:
+    alias: 
+    type: 
+    link:
+
+tools-soft:
+  - name: godot
+    dir: godot-dir
+    cmd: godot
+    alias: 'godot-dir/godot4_ --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+    type: zip
+    link: https://downloads.tuxfamily.org/godotengine/3.5.1/mono/Godot_v3.5.1-stable_mono_x11_64.zip
+
+tools-utils:
+  - name: bitwarden
+    type: AppImage
+    cmd: 'bitwarden-dir/bitwarden-files/Bitwarden --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+    alias: bitwarden
+    link: https://github.com/bitwarden/desktop/releases/download/v1.29.1/Bitwarden-1.29.1.AppImage
+    dir: bitwarden-dir
+
+tools-nao-sei:
+  - name: calibre
+    dir: calibre-dir
+    cmd: 'calibre-dir/calibre > /dev/null 2>&1 &'
+    alias: calibre
+    type: sh
+    link: https://download.calibre-ebook.com/linux64-installer.sh
+  - name: circuitblocks
+    dir: circuitblocks-dir 
+    cmd: 'circuitblocks-dir/cb-files/circuitblocks --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+    alias: circuitblocks
+    type: AppImage
+    link: https://github.com/CircuitMess/CircuitBlocks/releases/download/v1.10.0/CircuitBlocks-1.10.0-Linux.AppImage
+  - name: dbeaver
+    dir: dbeaver-dir
+    cmd: dbeaver
+    alias: 'dbeaver-dir/dbeaver-bin/dbeaver > /dev/null 2>&1 &'
+    type: tar.gz
+    link: https://dbeaver.io/files/24.0.0/dbeaver-ce-24.0.0-linux.gtk.x86_64.tar.gz
+  - name: drawio
+    dir: drawio-dir
+    cmd: drawio
+    alias: 'drawio-dir/drawio-files/drawio --no-sandbox > /dev/null 2>&1 &'
+    type: AppImage
+    link: https://github.com/jgraph/drawio-desktop/releases/download/v29.0.3/drawio-x86_64-29.0.3.AppImage
+  - name: fritzing
+    dir: fritzing-dir 
+    cmd: fritzing
+    alias: 'fritzing-dir/fritzing --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+    type: tar.bz2
+    link: https://fritzing.org/download/0.9.6b/fritzing-0.9.6b.linux.AMD64.tar.bz2
+  - name: gimp
+    dir: gimp-dir
+    cmd: gimp
+    alias: 'gimp-dir/gimp-files/AppRun > /dev/null 2>&1 &'
+    type: AppImage
+    link: https://github.com/aferrero2707/gimp-appimage/releases/download/continuous/GIMP_AppImage-git-2.10.21-20201001-x86_64.AppImage
+
+# outro lugar
+  - name: httrack
+    dir: httrack-dir
+    cmd: './httrack-dir/configure --prefix=$HOME/.local && make && make install && export PATH="$HOME/.local/bin:$PATH"'
+    alias: 
+    type: make
+    link: https://download.httrack.com/cserv.php3?File=httrack-3.49.2.tar.gz
+
+  - name: 
+    dir:
+    cmd:
+    alias: 
+    type: 
+    link:
+
+  - name: 
+    dir:
+    cmd:
+    alias: 
+    type: 
+    link:
+
+  - name: 
+    dir:
+    cmd:
+    alias: 
+    type: 
+    link:
+
+
+
+

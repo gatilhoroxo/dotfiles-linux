@@ -20,6 +20,7 @@ Um novo usuário precisaria apenas de 8 passos para configurar um computador rec
 - **personalization**: Scripts para baixar sites offline e configurar IAs locais
 
 ## Instalação
+
 ```bash
 git clone https://github.com/gatilhoroxo/dotfiles-linux 
 cd ~/dotfiles-linux && bash scripts/cin-work-7.sh
@@ -41,3 +42,4 @@ personalization - local stuff
 
 scripts - one setup of this
 
+---

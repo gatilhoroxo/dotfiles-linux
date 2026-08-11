@@ -1,31 +1,39 @@
 directories-root:
-  - name: files
-    original: Documents
-    detination: ~/
   - name: downloads
     original: Downloads
-    detination: ~/
+    destination: ~/
+  - name: files
+    original: Documents
+    destination: ~/
   - name: images
     original: Pictures
-    detination: ~/
+    destination: ~/
   - name: music
     original: Music
-    detination: ~/
-  - name: videos
-    original: Videos
-    detination: ~/
-  - name: templates
-    original: Templates
-    detination: ~/
+    destination: ~/
   - name: public
     original: Public
-    detination: ~/
+    destination: ~/
+  - name: templates
+    original: Templates
+    destination: ~/
+  - name: videos
+    original: Videos
+    destination: ~/
 
-directories-root-extra:
+dir-root-extra:
   - name: develop
-    detination: ~/
+    destination: ~/
 
-directories-others:
+dir-files:
+  - name: books
+    destination: ~/files
+  - name: cadeiras
+    destination: ~/files
+  - name: notes
+    destination: ~/files
+
+dir-develop:
   - name: notas
     destination: ~/develop
   - name: ufpe
@@ -34,4 +42,3 @@ directories-others:
     destination: ~/develop
   - name: archive
     destination: ~/develop
-  

@@ -1,5 +1,63 @@
 repositories:
+  - name: dotfiles-linux
+    state: public
+    url: https://github.com/gatilhoroxo/notebook-attempt.git
+    destination: ~/develop/projetos
+  - name: homePage
+    state: public
+    url: https://github.com/mauricioAndrey/homePage.git
+    destination: ~/develop/projetos
+
+repo-notes:
   - name: notebook-attempt
     state: private
     url: https://github.com/gatilhoroxo/notebook-attempt.git
     destination: ~/develop/notas
+  - name: roboticbook-attempt 
+    state: public
+    url: https://github.com/gatilhoroxo/roboticbook-attempt.git
+    destination: ~/develop/notas
+  - name: sketchbook-attempt 
+    state: public
+    url: https://github.com/gatilhoroxo/sketchbook-attempt.git
+    destination: ~/develop/notas
+
+# limite de 5 inicialmente
+repo-projetos: 
+  - name: monobrain-attempt
+    state: public
+    url: https://github.com/gatilhoroxo/monobrain-attempt.git
+    destination: ~/develop/projetos
+  - name: mc-journey-attempt
+    state: public
+    url: https://github.com/gatilhoroxo/mc-journey-attempt.git
+    destination: ~/develop/projetos
+  - name: ping-pong
+    state: public
+    url: https://github.com/gatilhoroxo/ping-pong.git
+    destination: ~/develop/projetos
+  - name: rust-learning-attempt
+    state: public
+    url: https://github.com/gatilhoroxo/rust-learning-attempt.git
+    destination: ~/develop/projetos
+  - name: python-learning-attempt
+    state: public
+    url: https://github.com/gatilhoroxo/python-learning-attempt.git
+    destination: ~/develop/projetos
+
+repo-work: 
+  - name: whiteRabbit-ufpe
+    state: private
+    url: https://github.com/MarconeGabriel/WhiteRabbit-FPGA-MYDJ7A100T-UFPE.git
+    destination: ~/develop/ufpe
+  - name: lib-Alexandria
+    state: public
+    url: https://github.com/jambis-prg/Biblioteca-de-Alexandria.git
+    destination: ~/develop/projetos
+
+repo-ufpe:
+  - name: cp-attempt
+    state: public
+    url: https://github.com/purple-trigger/cp-attempt.git
+    destination: ~/develop/ufpe
+

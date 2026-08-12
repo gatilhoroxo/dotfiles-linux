@@ -51,8 +51,8 @@ tools-dev-hard:
 tools-dev-soft:
   - name: godot
     dir: godot-dir
-    cmd: godot
-    alias: 'godot-dir/godot4_ --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+    cmd: 'godot-dir/godot4_ --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+    alias: godot
     type: zip
     link: https://downloads.tuxfamily.org/godotengine/3.5.1/mono/Godot_v3.5.1-stable_mono_x11_64.zip
 
@@ -91,26 +91,26 @@ tools-nao-sei:
     link: https://github.com/CircuitMess/CircuitBlocks/releases/download/v1.10.0/CircuitBlocks-1.10.0-Linux.AppImage
   - name: dbeaver
     dir: dbeaver-dir
-    cmd: dbeaver
-    alias: 'dbeaver-dir/dbeaver-bin/dbeaver > /dev/null 2>&1 &'
+    cmd: 'dbeaver-dir/dbeaver-bin/dbeaver > /dev/null 2>&1 &'
+    alias: dbeaver
     type: tar.gz
     link: https://dbeaver.io/files/24.0.0/dbeaver-ce-24.0.0-linux.gtk.x86_64.tar.gz
   - name: drawio
     dir: drawio-dir
-    cmd: drawio
-    alias: 'drawio-dir/drawio-files/drawio --no-sandbox > /dev/null 2>&1 &'
+    cmd: 'drawio-dir/drawio-files/drawio --no-sandbox > /dev/null 2>&1 &'
+    alias: drawio
     type: AppImage
     link: https://github.com/jgraph/drawio-desktop/releases/download/v29.0.3/drawio-x86_64-29.0.3.AppImage
   - name: fritzing
     dir: fritzing-dir
-    cmd: fritzing
-    alias: 'fritzing-dir/fritzing --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+    cmd: 'fritzing-dir/fritzing --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+    alias: fritzing
     type: tar.bz2
     link: https://fritzing.org/download/0.9.6b/fritzing-0.9.6b.linux.AMD64.tar.bz2
   - name: gimp
     dir: gimp-dir
-    cmd: gimp
-    alias: 'gimp-dir/gimp-files/AppRun > /dev/null 2>&1 &'
+    cmd: 'gimp-dir/gimp-files/AppRun > /dev/null 2>&1 &'
+    alias: gimp
     type: AppImage
     link: https://github.com/aferrero2707/gimp-appimage/releases/download/continuous/GIMP_AppImage-git-2.10.21-20201001-x86_64.AppImage
 

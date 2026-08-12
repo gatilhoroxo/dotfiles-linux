@@ -1,7 +1,8 @@
 # 
 # 
 # Lê a configuração
-# 
+# "Quais ferramentas o ambiente deseja?"
+#
 # ESTADO: incompleto
 # 
 

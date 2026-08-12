@@ -7,13 +7,13 @@
 
 command_exists()
 
-directory_exists()
-
 file_exists()
 
-ensure_directory()
+directory_exists()
 
 ensure_file()
+
+ensure_directory()
 
 download_file()
 
@@ -23,10 +23,15 @@ ask_confirmation()
 
 is_linux()
 
-is_root()
-
 is_writable()
+
 
 append_if_missing()
 
 contains_line()
+
+require_command()
+
+# avaliar
+ensure_repository()
+update_repository()

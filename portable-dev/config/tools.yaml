@@ -6,21 +6,49 @@ tools-padrao:
     type: AppImage
     link: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/Obsidian-1.6.7.AppImage
 
-tools-hard:
+tools-dev:
+  - name: vscode
+    dir: vscode-dir
+    cmd: 'vscode-dir/code --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+    alias: vscode
+    type: .zip
+    link: https://update.code.visualstudio.com/latest/linux-x64-zip/stable
+  - name:
+    dir:
+    cmd:
+    alias:
+    type:
+    link:
+
+tools-dev-hard:
   - name: arduino
     dir: arduino-dir
     cmd: 'arduino-dir/arduino-1.8.19/arduino --no-sandbox --disable-gpu > /dev/null 2>&1 &'
     alias: arduino
     type: tar.xz
     link: https://downloads.arduino.cc/arduino-1.8.19-linux64.tar.xz
-  - name: 
-    dir:
-    cmd:
-    alias: 
-    type: 
-    link:
+  - name: logisim-evolution
+    dir: logisim-dir
+    cmd: 'java -jar ~/../logisim-dir/logisim.jar > /dev/null 2>&1 &'
+    alias: logisim
+    type: jar
+    link: https://github.com/logisim-evolution/logisim-evolution/releases/download/v4.0.0/logisim-evolution-4.0.0-all.jar
+  - name: simulide
+    dir: simulide-dir
+    cmd: 'simulide-dir/simulide-files/AppRun > /dev/null 2>&1 &'
+    alias: simulide
+    type: AppImage
+    link: https://osdn.net/dl/simulide/SimulIDE_1.1.0-R1973_Linux64.AppImage
+    link2: https://simulide.com/p/downloads/
+  - name: kicad (instavel)
+    dir: kicad-dir
+    cmd: 'kicad-dir/kicad-7.0.6/bin/kicad --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+    alias: kicad
+    type: tar.bz2
+    link: https://kicad.org/download/linux/kicad-7.0.6-x86_64.tar.bz2
 
-tools-soft:
+
+tools-dev-soft:
   - name: godot
     dir: godot-dir
     cmd: godot
@@ -35,6 +63,18 @@ tools-utils:
     alias: bitwarden
     link: https://github.com/bitwarden/desktop/releases/download/v1.29.1/Bitwarden-1.29.1.AppImage
     dir: bitwarden-dir
+  - name: todoist
+    dir: todoist-dir
+    cmd: 'todoist-dir/todoist-files/todoist --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+    alias: todoist
+    type: AppImage
+    link: https://github.com/todoist/todoist-linux/releases/download/v2.6.3/Todoist-2.6.3.AppImage
+  - name: vivaldi
+    dir: vivaldi-dir
+    cmd: 'vivaldi-dir/vivaldi/vivaldi --no-sandbox --user-data-dir=\$HOME/files/tools/vivaldi-dir/perfil --disable-gpu > /dev/null 2>&1 &'
+    alias: vivaldi
+    type: deb
+    link: https://downloads.vivaldi.com/stable/vivaldi-stable_7.9.3970.45-1_amd64.deb
 
 tools-nao-sei:
   - name: calibre
@@ -44,7 +84,7 @@ tools-nao-sei:
     type: sh
     link: https://download.calibre-ebook.com/linux64-installer.sh
   - name: circuitblocks
-    dir: circuitblocks-dir 
+    dir: circuitblocks-dir
     cmd: 'circuitblocks-dir/cb-files/circuitblocks --no-sandbox --disable-gpu > /dev/null 2>&1 &'
     alias: circuitblocks
     type: AppImage
@@ -62,7 +102,7 @@ tools-nao-sei:
     type: AppImage
     link: https://github.com/jgraph/drawio-desktop/releases/download/v29.0.3/drawio-x86_64-29.0.3.AppImage
   - name: fritzing
-    dir: fritzing-dir 
+    dir: fritzing-dir
     cmd: fritzing
     alias: 'fritzing-dir/fritzing --no-sandbox --disable-gpu > /dev/null 2>&1 &'
     type: tar.bz2
@@ -78,30 +118,31 @@ tools-nao-sei:
   - name: httrack
     dir: httrack-dir
     cmd: './httrack-dir/configure --prefix=$HOME/.local && make && make install && export PATH="$HOME/.local/bin:$PATH"'
-    alias: 
+    alias: httrack
     type: make
     link: https://download.httrack.com/cserv.php3?File=httrack-3.49.2.tar.gz
+  - name: miniconda3
+    dir: miniconda3-dir
+    cmd: 'miniconda3-dir/miniconda3/bin/conda'
+    alias: conda
+    type: sh
+    link: https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+  - name: postman
+    dir: postman-dir
+    cmd: 'postman-dir/postman-bin/Postman --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+    alias: postman
+    type: tar.gz
+    link: https://dl.pstmn.io/download/latest/linux64
 
-  - name: 
-    dir:
-    cmd:
-    alias: 
-    type: 
-    link:
+  # - name:
+  #   dir:
+  #   cmd:
+  #   alias:
+  #   type:
+  #   link:
 
-  - name: 
-    dir:
-    cmd:
-    alias: 
-    type: 
-    link:
 
-  - name: 
-    dir:
-    cmd:
-    alias: 
-    type: 
-    link:
+
 
 
 

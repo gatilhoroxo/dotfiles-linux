@@ -5,9 +5,9 @@ INSTALL_DIR="$HOME/files/tools"
 ALIAS_FILE="$INSTALL_DIR/alias-tools.sh"
 
 cd "$INSTALL_DIR"
-rm -rf vscode-portable-dir
-mkdir -p vscode-portable-dir
-cd vscode-portable-dir
+rm -rf vscode-dir-dir
+mkdir -p vscode-dir-dir
+cd vscode-dir-dir
 
 echo "Baixando VS Code Portable..."
 # Link da versão estável mais recente
@@ -27,7 +27,7 @@ unzip vscode.zip > /dev/null
 rm vscode.zip
 
 if ! grep -q "alias codes=" "$ALIAS_FILE"; then
-    echo "alias codes=\"$INSTALL_DIR/vscode-portable/code --no-sandbox --disable-gpu > /dev/null 2>&1 &\"" >> "$ALIAS_FILE"
+    echo "alias codes=\"$INSTALL_DIR/vscode-dir/code --no-sandbox --disable-gpu > /dev/null 2>&1 &\"" >> "$ALIAS_FILE"
 fi
 
 echo -e "${b_green}[SUCESSO]${nc} VS Code (Portable) instalado manualmente!"

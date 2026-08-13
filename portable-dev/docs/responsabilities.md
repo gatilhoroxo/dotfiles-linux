@@ -6,89 +6,102 @@
 - **Modifica sistema?**: Não.
 - **Depende de**:        core.sh, utils.sh
 - **Funções públicas**:  has_sudo, has_docker, has_kvm, has_git
-- **Não pertence**:      Instalação, Alteração de arquivos, Mensagens de apresentação
+- **Não pertence**:      Instalação, alteração de arquivos, apresentação de diagnóstico.
 
 ## `clean.sh`
+
 - **Responsabilidade**:  Remover arquivos temporários e caches gerados pelo Portable Dev sem remover dados de usuário.
-- **Modifica sistema?**: a
-- **Depende de**:        a
-- **Funções públicas**:  a
-- **Não pertence**:      a
+- **Modifica sistema?**: Sim (em locais específicos).
+- **Depende de**:        core.sh, utils.sh
+- **Funções públicas**:  ...
+- **Não pertence**:      Remover dados do usuário sem confirmação, atualizar ferramentas.
 
 ## `core.sh`
-- **Responsabilidade**:  Infraestrutura básica sobre a qual os outros módulos vivem. 
-- **Modifica sistema?**: Não. 
-- **Depende de**:        Nada. 
+
+- **Responsabilidade**:  Infraestrutura básica sobre a qual os outros módulos vivem.
+- **Modifica sistema?**: Não.
+- **Depende de**:        Nada.
 - **Funções públicas**:  ...
-- **Não pertence**:      Instalação, Alteração de arquivos, Mensagens de apresentação. 
+- **Não pertence**:      Instalação, configuração do sistema, apresentação ao usuário.
 
 ## `directories.sh`
+
 - **Responsabilidade**:  Garantir uma determinada estrutra de diretórios
-- **Modifica sistema?**: Sim. 
-- **Depende de**:        core.sh, utils.sh
-- **Funções públicas**:  ...
-- **Não pertence**:      Instalação. 
+- **Modifica sistema?**: Sim.
+- **Depende de**:        core.sh, utils.sh, configuração de diretórios
+- **Funções públicas**:  ensure_directory, ensure_directories, ...
+- **Não pertence**:      Instalação de ferramentas, operações Git.
 
 ## `doctor.sh`
-- **Responsabilidade**:  Coletar e apresentar informações sobre o estado e capacidades relevantes da máquina. 
-- **Modifica sistema?**: Não. 
-- **Depende de**:        core.sh, utils.sh
-- **Funções públicas**:  ...
-- **Não pertence**:      ...
+
+- **Responsabilidade**:  Coletar e apresentar informações sobre o estado e capacidades relevantes da máquina.
+- **Modifica sistema?**: Não.
+- **Depende de**:        core.sh, utils.sh, capabilities.sh, log.sh
+- **Funções públicas**:  run_doctor, check_system, check_tools, ...
+- **Não pertence**:      Instalação ou correção automática.
 
 ## `git.sh`
+
 - **Responsabilidade**:  Fornecer operações genéricas relacionadas a repositórios Git.
-- **Modifica sistema?**: Sim. 
-- **Depende de**:        a
-- **Funções públicas**:  a
-- **Não pertence**:      a
+- **Modifica sistema?**: Sim (com o clone ou pull).
+- **Depende de**:        core.sh, utils.sh
+- **Funções públicas**:  is_git_repository, clone_repository, pull_repsitory, ...
+- **Não pertence**:      Decidir quais repositórios o ambiente deve possuir.
 
 ## `installer.sh`
-- **Responsabilidade**:  Garantir algumas ferramentas ausentes disponíveis. 
-- **Modifica sistema?**: Sim. 
-- **Depende de**:        capabilities.sh, packages.sh, ...
-- **Funções públicas**:  ...
-- **Não pertence**:      ...
+
+- **Responsabilidade**:  Garantir que algumas ferramentas ausentes estejam disponíveis com métodos de instalação.
+- **Modifica sistema?**: Sim.
+- **Depende de**:        capabilities.sh, packages.sh, core.sh, utils.sh
+- **Funções públicas**:  install_package, install_missing, install_tool.
+- **Não pertence**:      Definir quais ferramentas são desejadas.
 
 ## `log.sh`
-- **Responsabilidade**:  Como informar algo para o usuário. 
-- **Modifica sistema?**: Não
-- **Depende de**:        Nada. 
+
+- **Responsabilidade**:  Fornecer uma interface consistente de mensagens para o usuário.
+- **Modifica sistema?**: Não.
+- **Depende de**:        Nada.
 - **Funções públicas**:  log_info, log_success, log_warning, log_error, log_debug
-- **Não pertence**:      Instalação, Modificação de Arquivos. 
+- **Não pertence**:      Instalação ou modificação de Arquivos.
 
 ## `packages.sh`
-- **Responsabilidade**:  Ver quais ferramentas o ambiente deseja (system, portable, cointainer). 
-- **Modifica sistema?**: Não. 
-- **Depende de**:        core.sh, utils.sh
-- **Funções públicas**:  ...
-- **Não pertence**:      Instalação. 
+
+- **Responsabilidade**:  Descrever e consultar quais ferramentas o ambiente deseja, classificadas por métodos/tipo de instalação (system, portable, cointainer).
+- **Modifica sistema?**: Não.
+- **Depende de**:        core.sh, utils.sh, configuração de pacotes
+- **Funções públicas**:  get_packages, get_packages_by_type
+- **Não pertence**:      Instalação das ferramentas.
 
 ## `repositories.sh`
-- **Responsabilidade**:  Garantir a existência de certos repositórios. 
-- **Modifica sistema?**: Sim?
+
+- **Responsabilidade**:  Garantir a existência de repositórios definidos pela configuração.
+- **Modifica sistema?**: Sim.
 - **Depende de**:        core.sh, utils.sh, git.sh
-- **Funções públicas**:  ...
-- **Não pertence**:      ...
+- **Funções públicas**:  ensure_repository, ensure_repositories
+- **Não pertence**:      Implementar operações Git genéricas.
 
 ## `shell.sh`
-- **Responsabilidade**:  Preparar uma sessão de shell para o ambiente do usuário. 
-- **Modifica sistema?**: Sim (temporariamente, durante a sessão atual). 
-- **Depende de**:        core.sh, utils.sh, ...
-- **Funções públicas**:  ...
-- **Não pertence**:      Instalação. 
+
+- **Responsabilidade**:  Preparar uma sessão atual do shell para o uso do ambiente.
+- **Modifica sistema?**: Não permanentemente; muda a sessão atual.
+- **Depende de**:        core.sh, utils.sh
+- **Funções públicas**:  setup_session, setup_dev_environment
+- **Não pertence**:      Instalação permanente de ferramentas ou alteração arbitrária de arquivos de configuração.
 
 ## `update.sh`
+
 - **Responsabilidade**:  Atualizar componentes do ambiente que já estão instalados ou configurados.
-- **Modifica sistema?**: a
-- **Depende de**:        a
-- **Funções públicas**:  a
-- **Não pertence**:      a
+- **Modifica sistema?**: Sim.
+- **Depende de**:        core.sh, repositories.sh, installer.sh, ...
+- **Funções públicas**:  update_environment, ...
+- **Não pertence**:      Primeira configuração de uma máquina.
 
 ## `utils.sh`
-- **Responsabilidade**:  Tem algumas operações pequenas e genéricas que vários módulos precisam. 
-- **Modifica sistema?**: ?
-- **Depende de**:        ?
-- **Funções públicas**:  command_exists, file_exists, directory_exists, is_writable, require_command, ask_confirmation
-- **Não pertence**:      a
 
+- **Responsabilidade**:  Fornecer operações pequenas e genéricas que vários módulos precisam usar.
+- **Modifica sistema?**: Pode.
+- **Depende de**:        Nada?.
+- **Funções públicas**:  command_exists, file_exists, directory_exists, is_writable, require_command, ask_confirmation
+- **Não pertence**:      Lógica específica de Git, instalação, configuração de diretórios, etc.
+
+---

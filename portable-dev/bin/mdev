@@ -2,6 +2,12 @@
 
 echo "Portable mDev CLI"
 
+# rodando o arquivo com AS variáveis de ambiente
+TEMP="$(realpath "${BASH_SOURCE[0]}")"
+TEMP="$(dirname "$TEMP")"
+TEMP="$(dirname "$TEMP")" #segunda linha igual proposital
+source $TEMP/lib/core.sh #principais variaveis de ambiente
+
 if [ $# -eq 0 ]; then
   echo "Help about the use of this tool."
 else

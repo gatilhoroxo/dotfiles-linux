@@ -9,7 +9,7 @@
 - [x] Consolidar lib/
 - [x] Definir responsabilidade de cada módulo
 - [x] Criar bin/dev
-- [ ] Criar core.sh
+- [x] Criar core.sh
 - [ ] Criar log.sh
 - [ ] Criar utils.sh
 

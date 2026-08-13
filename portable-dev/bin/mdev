@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+echo "Portable mdev"
+
+if [ $# -eq 0 ]; then
+  echo "Help about the use of this tool."
+else
+  case "$1" in
+    clean)
+      echo "Command $1 not implemented yet."
+      ;;
+    doctor)
+      echo "Running $1..."
+      ;;
+    enter)
+      echo "Command $1 not implemented yet."
+      ;;
+    install)
+      echo "Command $1 not implemented yet."
+      ;;
+    setup)
+      echo "Running $1..."
+      ;;
+    update)
+      echo "Command $1 not implemented yet."
+      ;;
+    *)
+      echo "Command not recognized."
+      ;;
+    
+  esac
+
+fi

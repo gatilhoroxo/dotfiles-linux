@@ -6,7 +6,7 @@
 # Define caminhos internos
 # Inicializa variáveis globais
 # 
-# ESTADO do script: desenvolvendo
+# ESTADO do script: desenvolvendo, não testado
 # 
 
 readonly PROJECT_NAME="Portable mDev CLI"
@@ -31,38 +31,46 @@ readonly STATE_DIR="$PROJECT_ROOT/state"
 readonly TOOLS_DIR="$PROJECT_ROOT/tools"
 
 readonly CONFIG_DIR="$PROJECT_ROOT/config"
-    # ou em ~/.config/portable-dev
+  # ou em ~/.config/portable-dev
 readonly CACHE_DIR="$PROJECT_ROOT/cache"
-    # ou em ~/.cache/portable-dev
+  # ou em ~/.cache/portable-dev
 
 # --------------------------------
 
 #Função principal do script bin/mdev
 main(){
+  #scripts de dependencia
+  #nessa ordem
+  source "$LIB_DIR/colors.sh"      #primeiro
+  source "$LIB_DIR/log.sh"         #segundo
+  source "$LIB_DIR/command.sh"     #terceiro
+  source "$LIB_DIR/filesystem.sh"  #quarto
+
   if [ $# -eq 0 ]; then
-    echo "Help about the use of this tool."
+    log_info "Help about the use of this tool."
   else
-    case "$1" in
+    local cmd="$1"
+    case "$cmd" in
       clean)
-        echo "Command $1 not implemented yet."
+        log_warning "Command $cmd not implemented yet."
       ;;
       doctor)
-        echo "Running $1..."
+        log_info "Running $cmd..."
       ;;
       enter)
-        echo "Command $1 not implemented yet."
+        log_warning "Command $cmd not implemented yet."
       ;;
       install)
-        echo "Command $1 not implemented yet."
+        log_warning "Command $cmd not implemented yet."
       ;;
       setup)
-        echo "Running $1..."
+        log_info "Running $cmd..."
       ;;
       update)
-        echo "Command $1 not implemented yet."
+        log_warning "Command $cmd not implemented yet."
       ;;
       *)
-        echo "Unknown command: $1"
+        log_error "Unknown command: $cmd"
       ;;
     esac
   fi

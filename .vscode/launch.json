@@ -1,0 +1,20 @@
+/*
+    Configura o ambiente de debug. Define como o 
+    vscode deve iniciar sua aplicação para eu 
+    colocar breakpoints e inspecionar o código. 
+    - talvez não ir para o repositório git
+*/
+/*
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Python File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal"
+    }
+  ]
+}
+//*/

@@ -1,3 +1,7 @@
+/*
+    Sobreescreve as confugirações globais do vscode 
+    apenas para este repositório. 
+*/
 {
     "files.autoSave": "afterDelay",
     "[shellscript]": {

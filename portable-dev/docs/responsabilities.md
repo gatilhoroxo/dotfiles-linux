@@ -28,15 +28,15 @@
 
 - **Responsabilidade**:  Funções para ver sobre os comandos.
 - **Modifica sistema?**: Não.
-- **Depende de**:        Nada.
+- **Depende de**:        log.sh
 - **Funções públicas**:  ...
-- **Não pertence**:      Instalação, apresentação ao usuário.
+- **Não pertence**:      Instalação, alteração de arquivos, apresentação ao usuário.
 
 ## `core.sh`
 
 - **Responsabilidade**:  Infraestrutura básica sobre a qual os outros módulos vivem.
 - **Modifica sistema?**: Não.
-- **Depende de**:        Nada.
+- **Depende de**:        colors.sh, log.sh
 - **Funções públicas**:  ...
 - **Não pertence**:      Instalação, configuração do sistema, apresentação ao usuário.
 
@@ -44,8 +44,8 @@
 
 - **Responsabilidade**:  Garantir uma determinada estrutra de diretórios
 - **Modifica sistema?**: Sim.
-- **Depende de**:        core.sh, utils.sh, configuração de diretórios
-- **Funções públicas**:  ensure_directory, ensure_directories, ...
+- **Depende de**:        core.sh, filesystem.sh, configuração de diretórios
+- **Funções públicas**:  main_directories, , ...
 - **Não pertence**:      Instalação de ferramentas, operações Git.
 
 ## `doctor.sh`

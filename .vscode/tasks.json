@@ -1,0 +1,17 @@
+/*
+    Mapeia tarefas automatizadas e rotinas de
+    terminal que eu preciso rodar com frequência. 
+*/
+/*
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Tests",
+      "type": "shell",
+      "command": "pytest",
+      "group": "test"
+    }
+  ]
+}
+//*/

@@ -16,11 +16,27 @@
 - **Funções públicas**:  ...
 - **Não pertence**:      Remover dados do usuário sem confirmação, atualizar ferramentas.
 
+## `colors.sh`
+
+- **Responsabilidade**:  Descrição de cores usadas nos outros scripts.
+- **Modifica sistema?**: Não.
+- **Depende de**:        Nada.
+- **Funções públicas**:  ...
+- **Não pertence**:      Instalação, configuração do sistema, apresentação ao usuário.
+
+## `command.sh`
+
+- **Responsabilidade**:  Funções para ver sobre os comandos.
+- **Modifica sistema?**: Não.
+- **Depende de**:        log.sh
+- **Funções públicas**:  ...
+- **Não pertence**:      Instalação, alteração de arquivos, apresentação ao usuário.
+
 ## `core.sh`
 
 - **Responsabilidade**:  Infraestrutura básica sobre a qual os outros módulos vivem.
 - **Modifica sistema?**: Não.
-- **Depende de**:        Nada.
+- **Depende de**:        colors.sh, log.sh
 - **Funções públicas**:  ...
 - **Não pertence**:      Instalação, configuração do sistema, apresentação ao usuário.
 
@@ -28,8 +44,8 @@
 
 - **Responsabilidade**:  Garantir uma determinada estrutra de diretórios
 - **Modifica sistema?**: Sim.
-- **Depende de**:        core.sh, utils.sh, configuração de diretórios
-- **Funções públicas**:  ensure_directory, ensure_directories, ...
+- **Depende de**:        core.sh, filesystem.sh, configuração de diretórios
+- **Funções públicas**:  main_directories, , ...
 - **Não pertence**:      Instalação de ferramentas, operações Git.
 
 ## `doctor.sh`
@@ -39,6 +55,14 @@
 - **Depende de**:        core.sh, utils.sh, capabilities.sh, log.sh
 - **Funções públicas**:  run_doctor, check_system, check_tools, ...
 - **Não pertence**:      Instalação ou correção automática.
+
+## `filesystem.sh`
+
+- **Responsabilidade**:  Funções para lidar com arquivos do sistema. 
+- **Modifica sistema?**: Sim.
+- **Depende de**:        core.sh, log.sh, utils.sh
+- **Funções públicas**:  ensure_directory, ensure_directories, ...
+- **Não pertence**:      Instalação de ferramentas, operações Git.
 
 ## `git.sh`
 
@@ -100,7 +124,7 @@
 
 - **Responsabilidade**:  Fornecer operações pequenas e genéricas que vários módulos precisam usar.
 - **Modifica sistema?**: Pode.
-- **Depende de**:        Nada?.
+- **Depende de**:        log.sh
 - **Funções públicas**:  command_exists, file_exists, directory_exists, is_writable, require_command, ask_confirmation
 - **Não pertence**:      Lógica específica de Git, instalação, configuração de diretórios, etc.
 

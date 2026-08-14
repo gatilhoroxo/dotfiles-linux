@@ -10,14 +10,17 @@
 - [x] Definir responsabilidade de cada módulo
 - [x] Criar bin/dev
 - [x] Criar core.sh
-- [ ] Criar log.sh
-- [ ] Criar utils.sh
+- [x] Criar log.sh
+- [x] Criar utils.sh
 
 ## Milestone 1 - `core`, `log` e `utils`
 
-- [ ] implementar lib/core.sh
-- [ ] implementar lib/log.sh
+- [x] implementar lib/core.sh
+- [x] implementar lib/log.sh
+  - [x] implementar lib/colors.sh
 - [ ] implementar lib/utils.sh
+  - [ ] implementar lib/command.sh
+  - [ ] implementar lib/filesystem.sh
 
 ## Milestone 1 - Diagnóstico
 

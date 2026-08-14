@@ -14,3 +14,6 @@ repository_exists()
 current_branch()
 
 clone_repository()
+
+ensure_repository()
+update_repository()

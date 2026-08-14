@@ -5,5 +5,7 @@
 # ESTADO: incompleto
 # 
 
-ensure_directories()
+read_dir_yaml()
+
+main_directories()
 

@@ -1,0 +1,7 @@
+{
+    "files.autoSave": "afterDelay",
+    "[shellscript]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+    },
+}

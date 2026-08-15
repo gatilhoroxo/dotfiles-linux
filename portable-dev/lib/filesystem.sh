@@ -3,7 +3,7 @@
 # Apenas verifica coisas de arquivos e diretórios
 # 
 # ESTADO: desenvolvendo, não testado, não completo
-# Depende de log.sh, command.sh
+# Depende de log.sh
 # 
 
 file_exists() {
@@ -121,83 +121,5 @@ ensure_copy() {
     cp -r "$source" "$destination" || return 1
     log_success "Arquivo copiado com sucesso."
   fi
-}
-
-#talvez em outro lugar pois lida com vários outros comandos
-extract_file() {
-  #TODO: ver se a extração já foi feita
-  local file="$1"
-  if [ -z "$file" ]; then
-    log_error "Erro: Nenhum caminho de arquivo informado."
-    return 1
-  elif [ -f "$file" ]; then
-    shift # ← Remove apenas para pegar flags extras
-    case "$file" in
-      *.tar.bz2)
-        tar xjf    "$file" "$@" ;;
-      *.tar.gz)
-        tar xzf    "$file" "$@" ;;
-      *.tbz2)
-        tar xjf    "$file" "$@" ;;
-      *.tgz)
-        tar xzf    "$file" "$@" ;;
-      *.tar)
-        tar xf     "$file" "$@" ;;
-      *.bz2)
-        if command_exists bunzip2; then
-          bunzip2 "$file" "$@"
-        else
-          log_error "Erro: 'bunzip2' não encontrado. Instale o pacote 'bzip2'."
-        fi
-        ;;
-      *.rar)
-        if command_exists unrar; then
-          unrar x "$file" "$@"
-        else
-          log_error "Erro: 'unrar' não encontrado. Instale o pacote 'unrar'."
-        fi
-        ;;
-      *.zip)
-        if command_exists unzip; then
-          unzip "$file" "$@"
-        else
-          log_error "Erro: 'unzip' não encontrado. Instale o pacote 'unzip'."
-        fi
-        ;;
-      *.xz)
-        if command_exists unxz; then
-          unxz "$file" "$@"
-        else
-          log_error "Erro: 'unxz' não encontrado. Instale o pacote 'xz-utils'."
-        fi
-        ;;
-      *.gz)
-        if command_exists gunzip; then
-          gunzip "$file" "$@"
-        else
-          log_error "Erro: 'gunzip' não encontrado. Instale o pacote 'gzip'."
-        fi
-        ;;
-      *.7z)
-        if command_exists 7z; then
-          7z x "$file" "$@"
-        else
-          log_error "Erro: '7z' não encontrado. Instale o pacote 'p7zip'."
-        fi
-        ;;
-      *.Z)
-        if command_exists uncompress; then
-          uncompress "$file" "$@"
-        else
-          log_error "Erro: 'uncompress' não encontrado. Instale o pacote 'compress'."
-        fi
-        ;;
-      *)
-        log_error "'$file' formato não suportado" ;;
-    esac
-  else 
-    log_error "'$file' não é um arquivo válido"
-  fi
-  return 0
 }
 

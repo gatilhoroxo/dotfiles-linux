@@ -28,7 +28,7 @@
 
 - **Responsabilidade**:  Funções para ver sobre os comandos.
 - **Modifica sistema?**: Não.
-- **Depende de**:        log.sh
+- **Depende de**:        Nada.
 - **Funções públicas**:  ...
 - **Não pertence**:      Instalação, alteração de arquivos, apresentação ao usuário.
 
@@ -58,9 +58,9 @@
 
 ## `filesystem.sh`
 
-- **Responsabilidade**:  Funções para lidar com arquivos do sistema. 
+- **Responsabilidade**:  Funções para lidar com arquivos do sistema.
 - **Modifica sistema?**: Sim.
-- **Depende de**:        core.sh, log.sh, utils.sh
+- **Depende de**:        core.sh, log.sh
 - **Funções públicas**:  ensure_directory, ensure_directories, ...
 - **Não pertence**:      Instalação de ferramentas, operações Git.
 
@@ -85,7 +85,7 @@
 - **Responsabilidade**:  Fornecer uma interface consistente de mensagens para o usuário.
 - **Modifica sistema?**: Não.
 - **Depende de**:        Nada.
-- **Funções públicas**:  log_info, log_success, log_warning, log_error, log_debug
+- **Funções públicas**:  log, log_info, log_success, log_warning, log_error, log_debug
 - **Não pertence**:      Instalação ou modificação de Arquivos.
 
 ## `packages.sh`

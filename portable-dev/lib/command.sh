@@ -3,11 +3,11 @@
 # Funções totalmente genéricas
 # 
 # ESTADO: incompleto
-# Depende de ...
+# Depende de log.sh
 # 
 
-command_path() 
-
+#retorna se existe ou não
+#silenciosa
 command_exists() {
   local cmd="$1"
   [ -z "$cmd" ] && return 1
@@ -15,11 +15,42 @@ command_exists() {
   command -v "$cmd" > /dev/null 2>&1
 }
 
-command_version()
+# retorna caminho do comando
+command_path() {
+  local cmd="$1"
+  [ -z "$cmd" ] && return 1
+  command -v "$cmd"
+}
 
-require_command()
+#requer algum comando para continuar algo
+#"Preciso desse comando para continuar; ele existe?"
+require_command() {
+  local cmd="$1"
+  if [ -z "$cmd" ]; then
+    return 1
+  fi
+  if command_exists "$cmd"; then
+    return 0
+  fi
 
-require_commands()
+  log_error "Comando '$cmd' não encontrado."
+  return 1
+}
 
-find_command()
+#requer vários comandos diferentes
+#"Preciso de todos esses comandos?"
+require_commands() {
+  local cmd
+  for cmd in "$@"; do
+    require_command "$cmd" || return 1
+  done
+  return 0
+}
 
+# retorna versão do comando?
+# "Qual versão ele informa?"
+command_version() {
+  local cmd="$1"
+  require_command "$cmd" || return 1
+  "$cmd" --version
+}

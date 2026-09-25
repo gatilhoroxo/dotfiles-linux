@@ -20,7 +20,7 @@
   - [x] implementar lib/colors.sh
 - [ ] implementar lib/utils.sh
   - [x] implementar lib/filesystem.sh
-  - [ ] implementar lib/command.sh
+  - [x] implementar lib/command.sh
 
 ## Milestone 1 - Diagnóstico
 

@@ -74,14 +74,14 @@ mkcd $HOME/files/tools/todoist-dir
 wget -c "https://github.com/todoist/todoist-linux/releases/download/v2.6.3/Todoist-2.6.3.AppImage" -O todoist.AppImage || return 1
 chmod +x todoist.AppImage && ./todoist.AppImage --appimage-extract > /dev/null
 mv squashfs-root/* . 
-rm todoist.AppImage && rmdir squashfs-root
+rm todoist.AppImage && rm -rf squashfs-root
 echo "alias todoist=\"\$HOME/files/tools/todoist-dir/todoist --no-sandbox --disable-gpu > /dev/null 2>&1 &\"" >> "$alias_file"
 
 # configurando o bitwarden
 mkcd $HOME/files/tools/bitwarden-dir
-wget -c "https://github.com/bitwarden/desktop/releases/download/v1.29.1/Bitwarden-1.29.1.AppImage" -O bitwarden.AppImage || return 1
-chmod +x bitwarden.AppImage && ./bitwarden.AppImage --appimage-extract > /dev/null
-mv squashfs-root/ .
-rm bitwarden.AppImage && rmdir squashfs-root
-echo "alias bitwarden=\"\$HOME/files/tools/bitwarden-dir/bitwarden-files/Bitwarden --no-sandbox --disable-gpu > /dev/null 2>&1 &\"" >> "$alias_file"
+# wget -c "https://github.com/bitwarden/desktop/releases/download/v1.29.1/Bitwarden-1.29.1.AppImage" -O bitwarden.AppImage || return 1
+# chmod +x bitwarden.AppImage && ./bitwarden.AppImage --appimage-extract > /dev/null
+# mv squashfs-root/ .
+# rm bitwarden.AppImage && rmdir squashfs-root
+# echo "alias bitwarden=\"\$HOME/files/tools/bitwarden-dir/bitwarden-files/Bitwarden --no-sandbox --disable-gpu > /dev/null 2>&1 &\"" >> "$alias_file"
 

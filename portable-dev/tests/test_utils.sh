@@ -5,86 +5,69 @@ source ../lib/colors.sh
 source ../lib/log.sh
 source ../lib/command.sh
 source ../lib/filesystem.sh
+source ../lib/utils.sh
 
 TEST_DIR="./sandbox"
 
 rm -rf "$TEST_DIR"
 mkdir -p "$TEST_DIR"
 
-# ================================= ok
-# ainda está dando erro 
-echo "Teste: extract_file com arquivo inexistente"
+# ================================= 
 
-extract_file "$TEST_DIR/arquivo_inexistente.txt" 
+echo "Teste do ask_confirmation"
 
-if [ ! -f "$TEST_DIR/arquivo_inexistente.txt" ]; then
-    echo "OK"
-else
-    echo "ERRO"
+echo "Teste 1: entrada qualquer"
+files="$TEST_DIR/file_teste.txt"
+echo "y" > $files
+if ask_confirmation < $files ; then
+    echo "confirmado"
+else 
+    echo "negado"
 fi
 
-# ---------------------- ok
-
-echo "Teste: extract_file com arquivo existente mas invalido (não é um arquivo compactado)"
-
-touch "$TEST_DIR/arquivo_existente.txt"
-
-extract_file "$TEST_DIR/arquivo_existente.txt"
-
-#esse teste não faz sentido
-if [ -f "$TEST_DIR/arquivo_existente.txt" ]; then
-    echo "OK"
-else
-    echo "ERRO"
+#dando erro
+echo "Teste 2: entrada afirmativa"
+if ask_confirmation < $files ; then
+    echo "confirmado"
+else 
+    echo "negado"
 fi
 
-# ---------------------- ok
+# ================================= 
 
-#tar.gz
-echo "Teste: extract_file com arquivo existente e válido tar.gz (arquivo compactado)"
+echo "Teste do is_linux"
 
-#criar um arquivo compactado para teste
-echo "Conteúdo do arquivo de teste" > "$TEST_DIR/arquivo_para_compactar.txt"
-tar -czf "$TEST_DIR/arquivo_compactado.tar.gz" -C "$TEST_DIR" "arquivo_para_compactar.txt"
-
-rm "$TEST_DIR/arquivo_para_compactar.txt"
-
-extract_file "$TEST_DIR/arquivo_compactado.tar.gz"
-
-if [ -f "$TEST_DIR/arquivo_para_compactar.txt" ]; then
-    echo "OK"
-else
-    echo "ERRO"
+echo "Teste 1: sem entrada"
+if is_linux ; then
+    echo "confirmado"
+else 
+    echo "negado"
 fi
 
-rm "arquivo_para_compactar.txt"
+# ================================= 
 
-#tar.bz2
-echo "Teste: extract_file com arquivo existente e válido tar.bz2"
+echo "Teste do is_writable"
 
-#tar.xz
-echo "Teste: extract_file com arquivo existente e válido tar.xz"
+echo "Teste 1: sem entrada"
+if is_writable ; then
+    echo "confirmado"
+else 
+    echo "negado"
+fi
 
-#bunzip2
-echo "Teste: extract_file com arquivo existente e válido bunzip2"
+echo "Teste 2: entrada inexistente"
+if is_writable arquivo_inexistente.txt ; then
+    echo "confirmado"
+else 
+    echo "negado"
+fi
 
-#rar
-echo "Teste: extract_file com arquivo existente e válido rar"
-
-#zip
-echo "Teste: extract_file com arquivo existente e válido zip"
-
-#xz
-echo "Teste: extract_file com arquivo existente e válido xz"
-
-#gz com gunzip
-echo "Teste: extract_file com arquivo existente e válido gz"
-
-#7z
-echo "Teste: extract_file com arquivo existente e válido 7z"
-
-#Z com uncompress
-echo "Teste: extract_file com arquivo existente e válido Z"
+echo "Teste 2: entrada existente"
+if is_writable $files ; then
+    echo "confirmado"
+else 
+    echo "negado"
+fi
 
 # ================================= 
 

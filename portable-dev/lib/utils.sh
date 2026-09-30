@@ -21,12 +21,16 @@ ask_confirmation(){
 
 }
 
-is_linux()
+is_linux() {
+  [ "$(uname -o)" == "GNU/Linux" ]
+}
 
-is_writable()
+is_writable(){
+  local input="$1"
+  [ -n "$input" ] && [ -w "$input" ]
+}
 
+#append_if_missing(){}
 
-append_if_missing()
-
-contains_line()
+#contains_line(){}
 

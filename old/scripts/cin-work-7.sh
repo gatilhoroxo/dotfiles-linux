@@ -5,8 +5,8 @@ mkdir -p ~/develop/random && cd ~/develop/random
 git clone https://github.com/gatilhoroxo/dotfiles-linux.git
 
 # mudando a configuração do terminal
-cp -r dotfiles-linux/distros/base/.bash-config ~/.bash-config
-cp dotfiles-linux/distros/base/.bashrc ~/.bashrc
+cp -r dotfiles-linux/old/base/.bash-config ~/.bash-config
+cp dotfiles-linux/old/base/.bashrc ~/.bashrc
 mkdir -p ~/.local/storage/shell
 mv ~/.bash_history ~/.local/storage/shell/.bash_history 
 source ~/.bashrc
@@ -31,12 +31,12 @@ echo "export PATH=\$PATH:\$HOME/.local/bin" >> ~/.bash-config/aliases/exports.sh
 # setup dos diretorios
 mkdir -p ~/files/{books,college,notes,tools}
 mkdir -p ~/develop/{archive,lab,notas,projetos,random,ufpe} 
-mkdir -p ~/develop/lab/{arquitetura,docker,embarcados,freecad,linux,pesquisa,redes,ros2,simulacao}
+#mkdir -p ~/develop/lab/{arquitetura,docker,embarcados,freecad,linux,pesquisa,redes,ros2,simulacao}
 
 # preparação
 alias_file="$HOME/files/tools/alias-tools.sh"
 touch $alias_file
-echo "#!/bin/bash" > $alias_file
+echo "" > $alias_file ##!/bin/bash
 echo "# ~/files/tools/alias-tools.sh" >> $alias_file
 echo "source \$HOME/files/tools/alias-tools.sh" >> ~/.bash-config/aliases/toolz.sh
 
@@ -59,7 +59,7 @@ mkcd $HOME/files/tools/obsidian-dir
 wget -c "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/Obsidian-1.6.7.AppImage" -O obsidian.AppImage || return 1
 chmod +x obsidian.AppImage  && ./obsidian.AppImage --appimage-extract > /dev/null
 mv squashfs-root/* .
-rm obsidian.AppImage && rmdir squashfs-root
+rm obsidian.AppImage && rm -rf squashfs-root
 echo "alias obsidian=\"\$HOME/files/tools/obsidian-dir/obsidian --no-sandbox --disable-gpu > /dev/null 2>&1 &\"" >> "$alias_file"
 
 # configurando o vivaldi

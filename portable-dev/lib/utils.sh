@@ -30,7 +30,32 @@ is_writable(){
   [ -n "$input" ] && [ -w "$input" ]
 }
 
-#append_if_missing(){}
+#não testado
+contains_line(){
+  local line="$1"
+  local file="$2"
 
-#contains_line(){}
+  if [ -z "$line" ] || [ -z "$file" ]; then
+    return 1
+  fi
+
+  grep -Fxq -- "$line" "$file"
+}
+
+#não testado
+append_if_missing(){
+  local line="$1"
+  local file="$2"
+
+  if [ -z "$line" ] || [ -z "$file" ]; then
+    return 1
+  fi
+
+  if contains_line "$line" "$file"; then
+    return 0
+  fi
+
+  printf '%s\n' "$line" >> "$file"
+}
+
 

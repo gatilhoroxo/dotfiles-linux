@@ -18,7 +18,7 @@
 - [x] implementar lib/core.sh
 - [x] implementar lib/log.sh
   - [x] implementar lib/colors.sh
-- [/] implementar lib/utils.sh
+- [x] implementar lib/utils.sh
   - [x] implementar lib/filesystem.sh
   - [x] implementar lib/command.sh
 

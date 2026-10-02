@@ -9,6 +9,8 @@ check_system()
 
 check_network()
 
+check_permissions()
+
 check_packages()
 
 check_tools()

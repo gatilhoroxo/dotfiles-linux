@@ -13,7 +13,7 @@
 - [x] Criar log.sh
 - [x] Criar utils.sh
 
-## Milestone 1 - `core`, `log` e `utils`
+## Milestone 1.1 - `core`, `log` e `utils`
 
 - [x] implementar lib/core.sh
 - [x] implementar lib/log.sh
@@ -22,15 +22,50 @@
   - [x] implementar lib/filesystem.sh
   - [x] implementar lib/command.sh
 
-## Milestone 1 - Diagnóstico
+## Milestone 1.2 - Diagnóstico
 
-- [ ] Implementar dev doctor
-- [ ] Detectar SO
-- [ ] Detectar arquitetura
-- [ ] Detectar usuário
-- [ ] Detectar permissões
-- [ ] Detectar ferramentas
-- [ ] Detectar conectividade
+> 1. Estrutura
+- [x] Criar `doctor.sh`
+- [ ] Fazer `mdev doctor` chamar o módulo
+- [ ] Definir formato da saída do diagnóstico
+
+> 2. Sistema
+- [ ] Implementar detecção do SO
+- [ ] Implementar detecção da distribuição
+- [ ] Implementar detecção da versão
+- [ ] Implementar detecção da arquitetura
+
+> 3. Usuário
+- [ ] Detectar nome do usuário
+- [ ] Detectar HOME
+- [ ] Detectar shell
+
+> 4. Permissões
+- [ ] Verificar se HOME é gravável
+- [ ] Verificar `~/.local`
+- [ ] Verificar `~/.local/bin`
+- [ ] Detectar disponibilidade do sudo
+- [ ] Investigar permissões do sudo
+
+> 5. Ferramentas
+- [ ] Criar lista de ferramentas essenciais
+- [ ] Verificar ferramentas com `command_exists`
+- [ ] Mostrar caminho das ferramentas encontradas
+- [ ] Mostrar versão quando disponível
+- [ ] Separar ferramentas obrigatórias/opcionais
+
+> 6. Conectividade
+- [ ] Verificar disponibilidade de ferramenta de rede
+- [ ] Testar conectividade
+- [ ] Diferenciar "ferramenta ausente" de "sem Internet"
+
+> 7. Integração
+- [ ] `mdev doctor` executar todos os diagnósticos
+- [ ] Retornar código de saída adequado
+- [ ] Testar em ambiente normal
+- [ ] Testar em ambiente com ferramentas ausentes
+- [ ] Testar em ambiente sem permissões
+
 
 - Verificar apenas esses na primeira versão:
   - Sistema operacional

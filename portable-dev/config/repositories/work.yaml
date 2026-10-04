@@ -1,0 +1,9 @@
+- name: whiteRabbit-ufpe
+  state: private
+  url: https://github.com/MarconeGabriel/WhiteRabbit-FPGA-MYDJ7A100T-UFPE.git
+  destination: ~/develop/ufpe
+
+- name: lib-Alexandria
+  state: public
+  url: https://github.com/jambis-prg/Biblioteca-de-Alexandria.git
+  destination: ~/develop/projetos

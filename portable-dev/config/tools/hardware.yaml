@@ -1,0 +1,41 @@
+- name: arduino
+  source:
+    type: tar.xz
+    link: https://downloads.arduino.cc/arduino-1.8.19-linux64.tar.xz
+  install:
+    dir: arduino-dir
+  runtime:
+    alias: arduino
+    cmd: 'arduino-dir/arduino-1.8.19/arduino --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+
+- name: logisim-evolution
+  source:
+    type: jar
+    link: https://github.com/logisim-evolution/logisim-evolution/releases/download/v4.0.0/logisim-evolution-4.0.0-all.jar
+  install:
+    dir: logisim-dir
+  runtime:
+    alias: logisim
+    cmd: 'java -jar ~/../logisim-dir/logisim.jar > /dev/null 2>&1 &'
+
+- name: simulide
+  source:
+    type: AppImage
+    link: https://osdn.net/dl/simulide/SimulIDE_1.1.0-R1973_Linux64.AppImage
+    link2: https://simulide.com/p/downloads/
+  install:
+    dir: simulide-dir
+  runtime:
+    alias: simulide
+    cmd: 'simulide-dir/simulide-files/AppRun > /dev/null 2>&1 &'
+
+- name: kicad (instavel)
+  source:
+    type: tar.bz2
+    link: https://kicad.org/download/linux/kicad-7.0.6-x86_64.tar.bz2
+  install:
+    dir: kicad-dir
+  runtime:
+    alias: kicad
+    cmd: 'kicad-dir/kicad-7.0.6/bin/kicad --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+

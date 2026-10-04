@@ -1,0 +1,26 @@
+# limite de 5 inicialmente
+
+- name: monobrain-attempt
+  state: public
+  url: https://github.com/gatilhoroxo/monobrain-attempt.git
+  destination: ~/develop/projetos
+
+- name: mc-journey-attempt
+  state: public
+  url: https://github.com/gatilhoroxo/mc-journey-attempt.git
+  destination: ~/develop/projetos
+
+- name: ping-pong
+  state: public
+  url: https://github.com/gatilhoroxo/ping-pong.git
+  destination: ~/develop/projetos
+
+- name: rust-learning-attempt
+  state: public
+  url: https://github.com/gatilhoroxo/rust-learning-attempt.git
+  destination: ~/develop/projetos
+
+- name: python-learning-attempt
+  state: public
+  url: https://github.com/gatilhoroxo/python-learning-attempt.git
+  destination: ~/develop/projetos

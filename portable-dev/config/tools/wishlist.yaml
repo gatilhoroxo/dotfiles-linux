@@ -1,0 +1,54 @@
+notes:
+  - name: LibreOffice
+  - name: Joplin
+  - name: Notepad++
+  - name: Scribus
+
+dev:
+  - name: vscodium
+  - name: FreeCAD
+  - name: scratch
+
+creative:
+  video:
+    - name: OBS studio
+    - name: Shotcut/Kdenlive
+    - name: DaVinci Resolve
+    - name: HandBrake
+  image:
+    - name: Photopea
+    - name: Inkscape
+    - name: Blender
+    - name: Krita
+    - name: Affinity
+    - name: Penpot
+  audio:
+    - name: Audacity
+    - name: LMMS
+    - name: Ardour
+
+media:
+  video:
+    - name: VLC Media Player
+    - name: MPV
+
+utils:
+  - name: protonVPN 
+  - name: thunderbird
+  - name: qBittorrent
+  - name: 7zip
+
+
+  # - name: 
+  #   source:
+  #     type: 
+  #     link: 
+  #   install:
+  #     dir: 
+  #   runtime:
+  #     alias: 
+  #     cmd: 
+
+
+
+

@@ -1,0 +1,5 @@
+- name: cp-attempt
+  state: public
+  url: https://github.com/purple-trigger/cp-attempt.git
+  destination: ~/develop/ufpe
+

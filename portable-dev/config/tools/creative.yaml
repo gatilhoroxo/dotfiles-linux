@@ -1,0 +1,20 @@
+image:
+  - name: gimp
+    source:
+      type: AppImage
+      link: https://github.com/aferrero2707/gimp-appimage/releases/download/continuous/GIMP_AppImage-git-2.10.21-20201001-x86_64.AppImage
+    install:
+      dir: gimp-dir
+    runtime:
+      alias: gimp
+      cmd: 'gimp-dir/gimp-files/AppRun > /dev/null 2>&1 &'
+  - name: drawio
+    source:
+      type: AppImage
+      link: https://github.com/jgraph/drawio-desktop/releases/download/v29.0.3/drawio-x86_64-29.0.3.AppImage
+    install:
+      dir: drawio-dir
+    runtime:
+      alias: drawio
+      cmd: 'drawio-dir/drawio-files/drawio --no-sandbox > /dev/null 2>&1 &'
+

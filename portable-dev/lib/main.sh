@@ -39,12 +39,8 @@ readonly CACHE_DIR="$PROJECT_ROOT/cache"
 
 #Função principal do script bin/mdev
 main(){
-  #scripts de dependencia
-  #nessa ordem
-  source "$LIB_DIR/colors.sh"      #primeiro
-  source "$LIB_DIR/log.sh"         #segundo
-  source "$LIB_DIR/command.sh"     #terceiro
-  source "$LIB_DIR/filesystem.sh"  #quarto
+
+  source 
 
   if [ $# -eq 0 ]; then
     log_info "Help about the use of this tool."
@@ -56,6 +52,7 @@ main(){
       ;;
       doctor)
         log_info "Running $cmd..."
+        doctor "$1"
       ;;
       enter)
         log_warning "Command $cmd not implemented yet."

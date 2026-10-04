@@ -1,0 +1,20 @@
+- name: vscode
+  source:
+    type: .zip
+    link: https://update.code.visualstudio.com/latest/linux-x64-zip/stable
+  install:
+    dir: vscode-dir
+  runtime:
+    alias: vscode
+    cmd: 'vscode-dir/code --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+
+- name: godot
+  source:
+    type: zip
+    link: https://downloads.tuxfamily.org/godotengine/3.5.1/mono/Godot_v3.5.1-stable_mono_x11_64.zip
+  install:
+    dir: godot-dir
+  runtime:
+    alias: godot
+    cmd: 'godot-dir/godot4_ --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+

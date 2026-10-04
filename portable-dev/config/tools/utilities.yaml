@@ -1,0 +1,100 @@
+- name: bitwarden
+  source:
+    type: AppImage
+    link: https://github.com/bitwarden/desktop/releases/download/v1.29.1/Bitwarden-1.29.1.AppImage
+  install:
+    dir: bitwarden-dir
+  runtime:
+    alias: bitwarden
+    cmd: 'bitwarden-dir/bitwarden-files/Bitwarden --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+
+- name: todoist
+  source:
+    type: AppImage
+    link: https://github.com/todoist/todoist-linux/releases/download/v2.6.3/Todoist-2.6.3.AppImage
+  install:
+    dir: todoist-dir
+  runtime:
+    cmd: 'todoist-dir/todoist-files/todoist --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+    alias: todoist
+
+- name: vivaldi
+  source:
+    type: deb
+    link: https://downloads.vivaldi.com/stable/vivaldi-stable_7.9.3970.45-1_amd64.deb
+  install:
+    dir: vivaldi-dir
+  runtime:
+    alias: vivaldi
+    cmd: 'vivaldi-dir/vivaldi/vivaldi --no-sandbox --user-data-dir=\$HOME/files/tools/vivaldi-dir/perfil --disable-gpu > /dev/null 2>&1 &'
+
+- name: calibre
+  source:
+    type: sh
+    link: https://download.calibre-ebook.com/linux64-installer.sh
+  install:
+    dir: calibre-dir
+  runtime:
+    alias: calibre
+    cmd: 'calibre-dir/calibre > /dev/null 2>&1 &'
+
+# ========================================
+
+
+- name: circuitblocks
+  source:
+    type: AppImage
+    link: https://github.com/CircuitMess/CircuitBlocks/releases/download/v1.10.0/CircuitBlocks-1.10.0-Linux.AppImage
+  install:
+    dir: circuitblocks-dir
+  runtime:
+    alias: circuitblocks
+    cmd: 'circuitblocks-dir/cb-files/circuitblocks --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+- name: dbeaver
+  source:
+    type: tar.gz
+    link: https://dbeaver.io/files/24.0.0/dbeaver-ce-24.0.0-linux.gtk.x86_64.tar.gz
+  install:
+    dir: dbeaver-dir
+  runtime:
+    alias: dbeaver
+    cmd: 'dbeaver-dir/dbeaver-bin/dbeaver > /dev/null 2>&1 &'
+- name: fritzing
+  source:
+    type: tar.bz2
+    link: https://fritzing.org/download/0.9.6b/fritzing-0.9.6b.linux.AMD64.tar.bz2
+  install:
+    dir: fritzing-dir
+  runtime:
+    alias: fritzing
+    cmd: 'fritzing-dir/fritzing --no-sandbox --disable-gpu > /dev/null 2>&1 &'
+
+
+
+- name: httrack
+  source:
+    type: make
+    link: https://download.httrack.com/cserv.php3?File=httrack-3.49.2.tar.gz
+  install:
+    dir: httrack-dir
+  runtime:
+    alias: httrack
+    cmd: './httrack-dir/configure --prefix=$HOME/.local && make && make install && export PATH="$HOME/.local/bin:$PATH"'
+- name: miniconda3
+  source:
+    type: sh
+    link: https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+  install:
+    dir: miniconda3-dir
+  runtime:
+    alias: conda
+    cmd: 'miniconda3-dir/miniconda3/bin/conda'
+- name: postman
+  source:
+    type: tar.gz
+    link: https://dl.pstmn.io/download/latest/linux64
+  install:
+    dir: postman-dir
+  runtime:
+    alias: postman
+    cmd: 'postman-dir/postman-bin/Postman --no-sandbox --disable-gpu > /dev/null 2>&1 &'

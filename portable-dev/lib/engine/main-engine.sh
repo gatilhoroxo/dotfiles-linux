@@ -4,30 +4,45 @@
 # 
 # ESTADO: incompleto
 # 
+# depende de configs/var.sh
 
-PROJECT_ROOT="$(find_project_root)"
-readonly LIB_DIR="$PROJECT_ROOT/lib"
-readonly STATE_DIR="$PROJECT_ROOT/state"
-readonly TOOLS_DIR="$PROJECT_ROOT/tools"
 
 #scripts de dependencia
 #nessa ordem
-source "$LIB_DIR/config/*"       #primeiro
+# source "$LIB_DIR/config/*"       #primeiro # já feito na main.sh
 source "$LIB_DIR/command.sh"     #segundo
 source "$LIB_DIR/filesystem.sh"  #terceiro
 source "$LIB_DIR/utils.sh"       #quarto
 
 doctor(){
-
+  log_info "Doctor Function Started"
+  source "$ENGINE_DIR/doctor.sh"
+  log_warning "Functions not implemented yet..."
+  log_info "Doctor Function Finished"
 }
 
-setup(){}
+setup(){
+  source "$ENGINE_DIR/setup.sh"
+  log_warning "Functions not implemented yet..."
+}
 
-install(){}
+install(){
+  source "$ENGINE_DIR/install.sh"
+  log_warning "Functions not implemented yet..."
+}
 
-enter(){}
+enter(){
+  source "$ENGINE_DIR/enter.sh"
+  log_warning "Functions not implemented yet..."
+}
 
-update(){}
+update(){
+  source "$ENGINE_DIR/update.sh"
+  log_warning "Functions not implemented yet..."
+}
 
-clean(){}
+clean(){
+  source "$ENGINE_DIR/clean.sh"
+  log_warning "Functions not implemented yet..."
+}
 

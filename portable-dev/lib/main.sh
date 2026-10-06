@@ -12,9 +12,6 @@
 readonly PROJECT_NAME="Portable mDev CLI"
 readonly VERSION="0.1.0"
 
-
-EXEC_PATH="$HOME/.local/bin"
-
 find_project_root(){
   local temp="$(realpath "${BASH_SOURCE[0]}")"
   temp="$(dirname "$temp")"
@@ -23,24 +20,17 @@ find_project_root(){
 
 PROJECT_ROOT="$(find_project_root)"
 
-#readonly INSTALL_ROOT="$HOME/.local/share/portable-dev"
-#readonly INSTALL_BIN="$HOME/.local/bin/mdev"
+source "$PROJECT_ROOT/lib/configs/var.sh"
+source "$PROJECT_ROOT/lib/configs/colors.sh"
+source "$PROJECT_ROOT/lib/configs/log.sh"
 
-readonly LIB_DIR="$PROJECT_ROOT/lib"
-readonly STATE_DIR="$PROJECT_ROOT/state"
-readonly TOOLS_DIR="$PROJECT_ROOT/tools"
-
-readonly CONFIG_DIR="$PROJECT_ROOT/config"
-  # ou em ~/.config/portable-dev
-readonly CACHE_DIR="$PROJECT_ROOT/cache"
-  # ou em ~/.cache/portable-dev
 
 # --------------------------------
 
 #Função principal do script bin/mdev
 main(){
 
-  source 
+  source "$ENGINE_DIR/main-engine.sh"
 
   if [ $# -eq 0 ]; then
     log_info "Help about the use of this tool."
@@ -51,20 +41,23 @@ main(){
         log_warning "Command $cmd not implemented yet."
       ;;
       doctor)
-        log_info "Running $cmd..."
         doctor "$1"
       ;;
       enter)
         log_warning "Command $cmd not implemented yet."
+        enter "$1"
       ;;
       install)
         log_warning "Command $cmd not implemented yet."
+        install "$1"
       ;;
       setup)
         log_info "Running $cmd..."
+        setup "$1"
       ;;
       update)
         log_warning "Command $cmd not implemented yet."
+        update "$1"
       ;;
       *)
         log_error "Unknown command: $cmd"

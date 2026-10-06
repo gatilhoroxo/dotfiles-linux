@@ -5,12 +5,22 @@
 # ESTADO: incompleto
 # 
 
-install_package()
+install_package(){
+  log_warning "Functions not implemented yet..."
+}
 
-install_portable()
+install_portable(){
+  log_warning "Functions not implemented yet..."
+}
 
-install_system()
+install_system(){
+  log_warning "Functions not implemented yet..."
+}
 
-install_container()
+install_container(){
+  log_warning "Functions not implemented yet..."
+}
 
-install_missing()
+install_missing(){
+  log_warning "Functions not implemented yet..."
+}

@@ -27,7 +27,7 @@
 > 1. Estrutura
 
 - [x] Criar `doctor.sh`
-- [ ] Fazer `mdev doctor` chamar o módulo
+- [x] Fazer `mdev doctor` chamar o módulo
 - [ ] Definir formato da saída do diagnóstico
 
 > 2. Sistema

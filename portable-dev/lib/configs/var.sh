@@ -19,3 +19,5 @@ readonly CONFIG_DIR="$PROJECT_ROOT/config"
 readonly CACHE_DIR="$PROJECT_ROOT/cache"
   # ou em ~/.cache/portable-dev
 
+
+DIAGNOSTIC_FILE="$STATE_DIR/doctor/latest.json"

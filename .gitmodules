@@ -1,0 +1,3 @@
+[submodule "portable-dev/tools/submodules/jq"]
+	path = portable-dev/tools/submodules/jq
+	url = https://github.com/jqlang/jq.git

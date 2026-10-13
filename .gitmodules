@@ -1,3 +1,12 @@
 [submodule "portable-dev/tools/submodules/jq"]
 	path = portable-dev/tools/submodules/jq
 	url = https://github.com/jqlang/jq.git
+[submodule "portable-dev/tools/submodules/bats"]
+	path = portable-dev/tools/submodules/bats
+	url = https://github.com/bats-core/bats-core.git
+[submodule "portable-dev/tools/submodules/bats_helper/bats-support"]
+	path = portable-dev/tools/submodules/bats_helper/bats-support
+	url = https://github.com/bats-core/bats-support.git
+[submodule "portable-dev/tools/submodules/bats_helper/bats-assert"]
+	path = portable-dev/tools/submodules/bats_helper/bats-assert
+	url = https://github.com/bats-core/bats-assert.git

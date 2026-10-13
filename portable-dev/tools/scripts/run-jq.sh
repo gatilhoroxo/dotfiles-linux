@@ -2,7 +2,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-BIN_PATH="$SCRIPT_DIR/jq"
+BIN_PATH="$SCRIPT_DIR/../bin/jq"
 
 chosen=""
 
@@ -16,6 +16,8 @@ if [ "$chosen" = "" ]; then
   # 1. Se o binario ja existir na pasta bin/, executa diretamente 
   if [ -f "$BIN_PATH" ]; then
     exec "$BIN_PATH" "$@"
+  elif [ -f "$BIN_PATH-bin" ]; then
+    exec "$BIN_PATH-bin" "$@"
   fi
 
 elif [ "$chosen" = "0" ]; then 
@@ -54,8 +56,8 @@ elif [ "$chosen" = "1" ]; then
 
   URL="https://github.com/jqlang/jq/releases/latest/download/jq-${OS}-${ARCH_NAME}"
 
-  curl -sL -o "$BIN_PATH" "$URL" || wget -q -O "$BIN_PATH" "$URL"
-  chmod +x "$BIN_PATH"
+  curl -sL -o "$BIN_PATH-bin" "$URL" || wget -q -O "$BIN_PATH-bin" "$URL"
+  chmod +x "$BIN_PATH-bin"
 
-  #exec "$BIN_PATH" "$@"
+  #exec "$BIN_PATH-bin" "$@"
 fi

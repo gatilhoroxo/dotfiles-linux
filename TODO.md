@@ -22,28 +22,70 @@
   - [x] implementar lib/filesystem.sh
   - [x] implementar lib/command.sh
 
-## Milestone 1.2 - Diagnóstico
+## Milestone 1.2 — Estabilização da biblioteca
 
-> 1. Estrutura
+> Bats
+
+- [ ] Confirmar que o Bats integrado executa corretamente
+- [ ] Definir o padrão dos arquivos de teste
+- [ ] Definir como carregar os módulos e suas dependências
+- [ ] Criar um padrão para verificar status e saída
+
+> command.sh
+
+- [ ] Testar command_exists
+- [ ] Testar command_path
+- [ ] Testar command_version
+- [ ] Testar require_command
+- [ ] Testar require_commands
+
+> filesystem.sh
+
+- [ ] Testar funções de consulta
+- [ ] Testar funções de criação
+- [ ] Testar funções de cópia e movimentação
+- [ ] Testar links simbólicos
+
+> archive.sh
+
+- [ ] Testar entradas inválidas
+- [ ] Testar formatos suportados
+- [ ] Testar falhas de extração
+
+> utils.sh
+
+- [ ] Testar funções de detecção
+- [ ] Testar funções de texto
+- [ ] Testar confirmação interativa
+
+> Finalização
+
+- [ ] Executar toda a suíte
+- [ ] Corrigir regressões
+- [ ] Documentar como executar os testes
+
+## Milestone 1.3 - Diagnóstico
+
+> 1º Estrutura
 
 - [x] Criar `doctor.sh`
 - [x] Fazer `mdev doctor` chamar o módulo
 - [ ] Definir formato da saída do diagnóstico
 
-> 2. Sistema
+> 2º Sistema
 
 - [ ] Implementar detecção do SO
 - [ ] Implementar detecção da distribuição
 - [ ] Implementar detecção da versão
 - [ ] Implementar detecção da arquitetura
 
-> 3. Usuário
+> 3º Usuário
 
 - [ ] Detectar nome do usuário
 - [ ] Detectar HOME
 - [ ] Detectar shell
 
-> 4. Permissões
+> 4º Permissões
 
 - [ ] Verificar se HOME é gravável
 - [ ] Verificar `~/.local`
@@ -51,7 +93,7 @@
 - [ ] Detectar disponibilidade do sudo
 - [ ] Investigar permissões do sudo
 
-> 5. Ferramentas
+> 5º Ferramentas
 
 - [ ] Criar lista de ferramentas essenciais
 - [ ] Verificar ferramentas com `command_exists`
@@ -59,13 +101,13 @@
 - [ ] Mostrar versão quando disponível
 - [ ] Separar ferramentas obrigatórias/opcionais
 
-> 6. Conectividade
+> 6º Conectividade
 
 - [ ] Verificar disponibilidade de ferramenta de rede
 - [ ] Testar conectividade
 - [ ] Diferenciar "ferramenta ausente" de "sem Internet"
 
-> 7. Integração
+> 7º Integração
 
 - [ ] `mdev doctor` executar todos os diagnósticos
 - [ ] Retornar código de saída adequado
@@ -87,6 +129,7 @@
 - KVM
 - Internet
 
+---
 
 ## Milestone 2 - Setup
 

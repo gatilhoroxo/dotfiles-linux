@@ -10,4 +10,7 @@ elif [ -f "$BIN_PATH_one-bin" ]; then
   # ----------------------------------
 elif [ -f "$BIN_PATH_two" ]; then
   exec "$BIN_PATH_two" "$@"
+else
+  echo "Sem o repositório bats, clonando ele..."
+  git submodule update --init --recursive
 fi

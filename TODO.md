@@ -48,9 +48,9 @@
 
 > archive.sh
 
-- [ ] Testar entradas inválidas
-- [ ] Testar formatos suportados
-- [ ] Testar falhas de extração
+- [/] Testar entradas inválidas
+- [/] Testar formatos suportados
+- [/] Testar falhas de extração
 
 > utils.sh
 

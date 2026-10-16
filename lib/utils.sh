@@ -16,7 +16,7 @@ ask_confirmation(){
       ;;
     *) 
       return 1
-    ;;
+      ;;
   esac
 
 }

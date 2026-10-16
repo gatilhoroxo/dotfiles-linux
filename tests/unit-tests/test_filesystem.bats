@@ -5,9 +5,12 @@
 PROJECT_ROOT="$(cd "$BATS_TEST_DIRNAME/../.." && pwd)"
 
 setup() {
-    source "$PROJECT_ROOT/lib/configs/colors.sh"
-    source "$PROJECT_ROOT/lib/configs/log.sh"
-    source "$PROJECT_ROOT/lib/utils/filesystem.sh"
+    load "$PROJECT_ROOT/tests/helper/common.sh"
+    _common_setup
+
+    load "$PROJECT_ROOT/lib/configs/colors.sh"
+    load "$PROJECT_ROOT/lib/configs/log.sh"
+    load "$PROJECT_ROOT/lib/utils/filesystem.sh"
 
     file="$BATS_TEST_TMPDIR/example.txt"
     touch "$file"
@@ -68,6 +71,7 @@ teardown() {
     run file_exists
 
     [ "$status" -eq 1 ]
+    assert_output --partial 'Erro'
 }
 
 # ===================================================
@@ -89,6 +93,7 @@ teardown() {
     run directory_exists
 
     [ "$status" -eq 1 ]
+    assert_output --partial 'Erro'
 }
 
 # ===================================================
@@ -116,6 +121,7 @@ teardown() {
     run is_symlink
 
     [ "$status" -eq 1 ]
+    assert_output --partial 'Erro'
 }
 
 # ===================================================
@@ -139,6 +145,7 @@ teardown() {
     run ensure_file
 
     [ "$status" -eq 1 ]
+    assert_output --partial 'Erro'
 }
 
 # ===================================================
@@ -162,6 +169,7 @@ teardown() {
     run ensure_directory
 
     [ "$status" -eq 1 ]
+    assert_output --partial 'Erro'
 }
 
 # ===================================================
@@ -191,6 +199,7 @@ teardown() {
     run ensure_symlink
 
     [ "$status" -eq 1 ]
+    assert_output --partial 'Erro'
 }
 
 # ===================================================
@@ -214,5 +223,6 @@ teardown() {
     run ensure_copy
 
     [ "$status" -eq 1 ]
+    assert_output --partial 'Erro'
 }
 

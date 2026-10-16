@@ -3,6 +3,9 @@
 PROJECT_ROOT="$(cd "$BATS_TEST_DIRNAME/../.." && pwd)"
 
 setup() {
+    load "$PROJECT_ROOT/tests/helper/common.sh"
+    _common_setup
+
     source "$PROJECT_ROOT/lib/utils/command.sh"
 }
 

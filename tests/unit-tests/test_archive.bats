@@ -26,6 +26,7 @@ setup() {
     # ------------------------
     run extract_file "$zipado"
     [ "$status" -eq 0 ]
+    assert_output --partial 'Arquivo extraído em: ...'
     # ------------------------
 
     rm "$file" 

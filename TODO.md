@@ -26,25 +26,25 @@
 
 > Bats
 
-- [ ] Confirmar que o Bats integrado executa corretamente
-- [ ] Definir o padrão dos arquivos de teste
-- [ ] Definir como carregar os módulos e suas dependências
-- [ ] Criar um padrão para verificar status e saída
+- [x] Confirmar que o Bats integrado executa corretamente
+- [x] Definir o padrão dos arquivos de teste
+- [x] Definir como carregar os módulos e suas dependências
+- [x] Criar um padrão para verificar status e saída
 
 > command.sh
 
-- [ ] Testar command_exists
-- [ ] Testar command_path
-- [ ] Testar command_version
-- [ ] Testar require_command
-- [ ] Testar require_commands
+- [x] Testar command_exists
+- [x] Testar command_path
+- [x] Testar command_version
+- [x] Testar require_command
+- [x] Testar require_commands
 
 > filesystem.sh
 
-- [ ] Testar funções de consulta
-- [ ] Testar funções de criação
-- [ ] Testar funções de cópia e movimentação
-- [ ] Testar links simbólicos
+- [x] Testar funções de consulta
+- [x] Testar funções de criação
+- [x] Testar funções de cópia e movimentação
+- [x] Testar links simbólicos
 
 > archive.sh
 

@@ -2,7 +2,7 @@
 #
 # Funções totalmente genéricas
 # 
-# ESTADO: incompleto
+# ESTADO: completo
 #  
 
 
@@ -30,7 +30,6 @@ is_writable(){
   [ -n "$input" ] && [ -w "$input" ]
 }
 
-#não testado
 contains_line(){
   local line="$1"
   local file="$2"
@@ -42,7 +41,6 @@ contains_line(){
   grep -Fxq -- "$line" "$file"
 }
 
-#não testado
 append_if_missing(){
   local line="$1"
   local file="$2"

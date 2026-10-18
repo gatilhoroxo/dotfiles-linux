@@ -46,7 +46,7 @@ extract_file() {
         ;;
       *.bz2)
         if command_exists bunzip2; then
-          bunzip2 "$file" "$@" || return 1
+          bunzip2 "$file" -c "$@" > "$(basename "${file%.bz2}")" || return 1
           return 0
         else
           log_error "Erro: 'bunzip2' não encontrado. Instale o pacote 'bzip2'."
@@ -70,7 +70,7 @@ extract_file() {
         ;;
       *.xz)
         if command_exists unxz; then
-          unxz "$file" "$@" || return 1
+          unxz "$file" -c "$@" > "$(basename "${file%.xz}")" || return 1
           return 0
         else
           log_error "Erro: 'unxz' não encontrado. Instale o pacote 'xz-utils'."
@@ -78,7 +78,7 @@ extract_file() {
         ;;
       *.gz)
         if command_exists gunzip; then
-          gunzip "$file" "$@" || return 1
+          gunzip "$file" -c "$@" > "$(basename "${file%.gz}")" || return 1
           return 0
         else
           log_error "Erro: 'gunzip' não encontrado. Instale o pacote 'gzip'."

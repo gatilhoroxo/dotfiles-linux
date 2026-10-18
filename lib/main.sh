@@ -12,9 +12,12 @@
 readonly PROJECT_NAME="Portable mDev CLI"
 readonly VERSION="0.1.0"
 
-source "$PROJECT_ROOT/lib/configs/finds.sh"
+# --/--/--/--/--/--/--/
 
-PROJECT_ROOT="$(find_project_root)"
+temp="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
+export PROJECT_ROOT="$(dirname "$temp")"
+
+# --/--/--/--/--/--/--/
 
 source "$PROJECT_ROOT/lib/configs/var.sh"
 source "$PROJECT_ROOT/lib/configs/colors.sh"

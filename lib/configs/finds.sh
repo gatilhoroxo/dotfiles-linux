@@ -4,7 +4,6 @@
 # 
 
 find_project_root(){
-  local temp="$(realpath "${BASH_SOURCE[0]}")"
-  temp="$(dirname "$temp")"
+  local temp="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
   echo "$(dirname "$temp")"
 }

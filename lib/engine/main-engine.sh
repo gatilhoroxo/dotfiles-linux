@@ -10,9 +10,9 @@
 #scripts de dependencia
 #nessa ordem
 # source "$LIB_DIR/config/*"       #primeiro # já feito na main.sh
-source "$LIB_DIR/command.sh"     #segundo
-source "$LIB_DIR/filesystem.sh"  #terceiro
-source "$LIB_DIR/utils.sh"       #quarto
+source "$UTILS_DIR/command.sh"     #segundo
+source "$UTILS_DIR/filesystem.sh"  #terceiro
+source "$LIB_DIR/utils.sh"         #quarto
 
 doctor(){
   log_info "Doctor Function Started"

@@ -2,6 +2,6 @@
 
 echo "Portable mDev CLI"
 
-source "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/../lib/main.sh"
+source "$(dirname "$(dirname "$(realpath "${BASH_SOURCE[0]}")")")/lib/main.sh"
 
 main "$@"

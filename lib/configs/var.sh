@@ -6,13 +6,14 @@ EXEC_PATH="$HOME/.local/bin"
 #readonly INSTALL_ROOT="$HOME/.local/share/portable-dev"
 #readonly INSTALL_BIN="$HOME/.local/bin/mdev"
 
-source "finds.sh"
-
-PROJECT_ROOT="$(find_project_root)"
+#PROJECT_ROOT="$(find_project_root)"
 readonly LIB_DIR="$PROJECT_ROOT/lib"
+readonly CONFIGS_DIR="$LIB_DIR/configs"
+readonly ENGINE_DIR="$LIB_DIR/engine"
+readonly UTILS_DIR="$LIB_DIR/utils"
+
 readonly STATE_DIR="$PROJECT_ROOT/state"
 readonly TOOLS_DIR="$PROJECT_ROOT/tools"
-readonly ENGINE_DIR="$LIB_DIR/engine"
 
 
 readonly CONFIG_DIR="$PROJECT_ROOT/config"
@@ -21,4 +22,4 @@ readonly CACHE_DIR="$PROJECT_ROOT/cache"
   # ou em ~/.cache/portable-dev
 
 
-DIAGNOSTIC_FILE="$STATE_DIR/doctor/latest.json"
+readonly DIAGNOSTIC_FILE="$STATE_DIR/doctor/latest.json"

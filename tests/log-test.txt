@@ -1,0 +1,109 @@
+
+========================================
+Categoria: units
+========================================
+Executando 4 arquivo(s) de teste...
+
+1..56
+not ok 1 extract_file extrai um arquivo .tar.bz2 ou tbz2
+# (in test file tests/unit-tests/test_archive.bats, line 28)
+#   `[ "$status" -eq 0 ]' failed
+# tar: Removing leading `/' from member names
+# /tmp/bats-run-Lz3gjA/test/1/example.txt
+ok 2 command_exists retorna sucesso para um comando existente
+ok 3 command_exists retorna falha para um comando inexistente
+ok 4 command_exists retorna falha para falta de argumentos
+ok 5 command_path retorna sucesso para um comando existente
+ok 6 command_path retorna falha para um comando inexistente
+ok 7 command_path retorna falha para falta de argumentos
+ok 8 require_command retorna sucesso para um comando existente
+ok 9 require_command retorna falha para um comando inexistente
+ok 10 require_command retorna falha para falta de argumentos
+ok 11 require_commands retorna sucesso para um comando existente
+ok 12 require_commands retorna sucesso para dois comando existente
+ok 13 require_commands retorna falha para um comando inexistente no fim
+ok 14 require_commands retorna falha para um comando inexistente no início
+ok 15 require_commands retorna falha para falta de argumentos
+ok 16 command_version retorna sucesso para um comando existente
+ok 17 command_version retorna falha para um comando inexistente
+ok 18 command_version retorna falha para falta de argumentos
+ok 19 file_exists retorna sucesso para um arquivo existente
+ok 20 file_exists retorna falha para um arquivo inexistente
+ok 21 file_exists retorna falha para sem argumentos
+ok 22 directory_exists retorna sucesso para um diretorio existente
+ok 23 directory_exists retorna falha para um diretorio inexistente
+ok 24 directory_exists retorna falha para sem argumentos
+ok 25 is_symlink retorna sucesso para um link existente
+ok 26 is_symlink retorna falha para algo que não é um link
+ok 27 is_symlink retorna falha para um link inexistente
+ok 28 is_symlink retorna falha para sem argumentos
+ok 29 ensure_file não cria um arquivo para um arquivo existente
+ok 30 ensure_file cria um arquivo para um arquivo inexistente
+ok 31 ensure_file retorna falha para sem argumentos
+ok 32 ensure_directory não cria um diretorio para um diretorio existente
+ok 33 ensure_directory cria um diretorio para um diretorio inexistente
+ok 34 ensure_directory retorna falha para sem argumentos
+ok 35 ensure_symlink não cria um link para um link existente
+ok 36 ensure_symlink dá erro para um arquivo inexistente
+ok 37 ensure_symlink cria um link para um link inexistente
+ok 38 ensure_symlink retorna falha para sem argumentos
+ok 39 ensure_copy dá erro para um arquivo inexistente
+ok 40 ensure_copy cria uma copia para um arquivo inexistente
+ok 41 ensure_copy retorna falha para sem argumentos
+ok 42 ask_confirmation aceita a resposta sim
+ok 43 ask_confirmation rejeita a resposta não
+ok 44 ask_confirmation rejeita uma resposta vazia
+ok 45 is_linux retorna sucesso quando o sistema é GNU/Linux
+ok 46 is_linux retorna falha quando o sistema não é GNU/Linux
+ok 47 is_writable retorna sucesso para um diretório gravável
+ok 48 is_writable retorna falha para um caminho inexistente
+ok 49 is_writable retorna falha quando nenhum caminho é informado
+ok 50 contains_line encontra uma linha existente
+ok 51 contains_line encontra não uma linha existente
+ok 52 contains_line não confunde uma linha com um trecho de outra
+ok 53 append_if_missing adiciona uma linha que ainda não existe
+ok 54 append_if_missing não duplica uma linha existente
+ok 55 append_if_missing preserva o conteúdo existente
+ok 56 append_if_missing mostra sua indepotencia
+
+Resultado de units: FALHOU (código 1)
+
+========================================
+Categoria: integration
+========================================
+Executando 1 arquivo(s) de teste...
+
+1..0
+
+Resultado de integration: PASSOU
+
+========================================
+Categoria: e2e
+========================================
+SKIP: diretório não encontrado: /home/drey/develop/projetos/dotfiles-linux/tests/e2e-tests
+
+========================================
+Categoria: system
+========================================
+Executando 1 arquivo(s) de teste...
+
+1..1
+ok 1 mdev exibe a mensagem de ajuda quando executado sem argumentos
+
+Resultado de system: PASSOU
+
+
+========================================
+RESUMO DA SUÍTE DE TESTES
+========================================
+Categorias aprovadas: 2
+Categorias com falhas: 1
+Categorias ignoradas: 1
+
+PASSOU: integration system
+
+FALHOU: units
+
+IGNORADO: e2e
+
+A suíte terminou com falhas.

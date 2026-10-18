@@ -54,9 +54,9 @@
 
 > utils.sh
 
-- [ ] Testar funções de detecção
-- [ ] Testar funções de texto
-- [ ] Testar confirmação interativa
+- [x] Testar funções de detecção
+- [x] Testar funções de texto
+- [x] Testar confirmação interativa
 
 > Finalização
 

@@ -1,4 +1,4 @@
-# 
+#!/bin/bash
 # 
 # Tudo relacionado à sessão
 # export PATH="$PWD/bin:$PATH"

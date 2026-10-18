@@ -1,4 +1,4 @@
-# 
+#!/bin/bash
 # 
 # As funções que fazem parte do que a minha ferramenta vai chamar
 # 

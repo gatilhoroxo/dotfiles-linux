@@ -1,5 +1,5 @@
-
-
+#!/bin/bash
+#
 
 EXEC_PATH="$HOME/.local/bin"
 

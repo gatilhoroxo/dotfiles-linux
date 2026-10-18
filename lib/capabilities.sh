@@ -1,4 +1,4 @@
-# 
+#!/bin/bash
 # 
 # Este arquivo contem funções que responde perguntas. 
 # Nunca modifica nada. 

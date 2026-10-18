@@ -1,4 +1,4 @@
-# 
+#!/bin/bash
 # 
 # Apenas remove cache. 
 # 

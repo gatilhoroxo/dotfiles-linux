@@ -27,3 +27,11 @@ setup() {
 }
 
 ```
+
+## Testando a suíte de testes
+
+- testando tudo e vendo o resultado no terminal: `bash ./tests/main-tests.sh all` 
+- escolhendo quais testes: `bash ./tests/main-tests.sh units integration system` 
+- pedindo ajuda para usar o script: `bash ./tests/main-tests.sh --help` 
+
+---

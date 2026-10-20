@@ -60,9 +60,9 @@
 
 > Finalização
 
-- [ ] Executar toda a suíte
-- [ ] Corrigir regressões
-- [ ] Documentar como executar os testes
+- [x] Executar toda a suíte
+- [x] Corrigir regressões
+- [x] Documentar como executar os testes
 
 ## Milestone 1.3 - Diagnóstico
 

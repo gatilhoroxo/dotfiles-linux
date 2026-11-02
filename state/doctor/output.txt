@@ -1,0 +1,26 @@
+mdev doctor
+==========
+
+[AMBIENTE]
+[ OK ] Sistema operacional identificado
+[ OK ] Arquitetura identificada
+[WARN] Sem acesso a /dev/kvm
+
+[DEPENDÊNCIAS]
+[ OK ] git
+[ OK ] python3
+[WARN] gh não encontrado
+[FAIL] Configuração principal não encontrada
+
+[REPOSITÓRIOS]
+[ OK ] Notas
+[ OK ] Projetos
+[WARN] Repositório de trabalho não encontrado
+
+[RESUMO]
+Verificações: 9
+Sucesso:      6
+Avisos:       2
+Falhas:       1
+
+==========

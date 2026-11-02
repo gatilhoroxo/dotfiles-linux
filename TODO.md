@@ -70,7 +70,7 @@
 
 - [x] Criar `doctor.sh`
 - [x] Fazer `mdev doctor` chamar o módulo
-- [ ] Definir formato da saída do diagnóstico
+- [x] Definir formato da saída do diagnóstico
 
 > 2º Sistema
 
